@@ -1,0 +1,605 @@
+name: setup1
+devices:
+  dmx1:
+    driver: enttec-dmx-usb-pro
+    #driver: virtual
+    device: /dev/tty.usbserial-EN346679
+universes:
+  default:
+    output:
+      device: dmx1
+      universe: 0
+fixtures:
+  laser:
+    kind: UKing-ZQ03003
+    universe: default
+    mode: 7ch
+    address: 1
+  switch:
+    kind: Decoder3channel
+    universe: default
+    mode: 3ch
+    address: 58
+  moonl:
+    kind: LaluceNatzDerby
+    universe: default
+    mode: 7ch
+    address: 8
+  moonr:
+    kind: LaluceNatzDerby
+    universe: default
+    mode: 7ch
+    address: 15
+  wl:
+    kind: Betopper-LPC008S
+    universe: default
+    mode: 7ch
+    address: 22
+  wr:
+    kind: Betopper-LPC008S
+    universe: default
+    mode: 7ch
+    address: 29
+  sl:
+    kind: Chauvet-Intimidator-Scan-110
+    universe: default
+    mode: 11ch
+    address: 47
+  sr:
+    kind: Chauvet-Intimidator-Scan-110
+    universe: default
+    mode: 11ch
+    address: 36
+  mh1:
+    kind: XPCLEOYZ-60w-90w-mini-led-spot
+    universe: default
+    mode: 11ch
+    address: 61
+  mh2:
+    kind: XPCLEOYZ-60w-90w-mini-led-spot
+    universe: default
+    mode: 11ch
+    address: 72
+  mh3:
+    kind: XPCLEOYZ-60w-90w-mini-led-spot
+    universe: default
+    mode: 11ch
+    address: 83
+  mh4:
+    kind: XPCLEOYZ-60w-90w-mini-led-spot
+    universe: default
+    mode: 11ch
+    address: 94
+groups:
+  wash:
+    members: ["wl", "wr"]
+  scan:
+    members: ["sl", "sr"]
+  mh:
+    members: ["mh1", "mh2", "mh3", "mh4"]
+  moon:
+    members: ["moonl", "moonr"]
+cues:
+  default:
+    - groups: ["wash"]
+scenes: # statically applied
+  white:
+    - kind: rgb
+      groups: ["wash"]
+      spec:
+        color: FFFFFF
+    - kind: gobo
+      groups: ["scan"]
+      spec:
+        gobo: white
+    - kind: color
+      groups: ["mh"]
+      spec:
+        color: white
+    - kind: gobo
+      groups: ["mh"]
+      spec:
+        gobo: "triangle"
+  all-red:
+    - kind: rgb
+      groups: ["wash"]
+      spec:
+        color: FF0000
+    - kind: gobo
+      groups: ["scan"]
+      spec:
+        gobo: red
+    - kind: color
+      groups: ["mh"]
+      spec:
+        color: red
+    - kind: gobo
+      groups: ["mh"]
+      spec:
+        gobo: "none"
+    - kind: gobo
+      groups: ["moon"]
+      spec:
+        gobo: "red"
+  all-green:
+    - kind: rgb
+      groups: ["wash"]
+      spec:
+        color: 00FF00
+    - kind: gobo
+      groups: ["scan"]
+      spec:
+        gobo: green
+    - kind: color
+      groups: ["mh"]
+      spec:
+        color: green
+    - kind: gobo
+      groups: ["mh"]
+      spec:
+        gobo: "whirlpool"
+    - kind: gobo
+      groups: ["moon"]
+      spec:
+        gobo: "orange"
+  all-blue:
+    - kind: rgb
+      groups: ["wash"]
+      spec:
+        color: 0000FF
+    - kind: gobo
+      groups: ["scan"]
+      spec:
+        gobo: blue
+    - kind: color
+      groups: ["mh"]
+      spec:
+        color: blue
+    - kind: gobo
+      groups: ["mh"]
+      spec:
+        gobo: "star"
+    - kind: gobo
+      groups: ["moon"]
+      spec:
+        gobo: "blue"
+  all-yellow:
+    - kind: rgb
+      groups: ["wash"]
+      spec:
+        color: FFFF00
+    - kind: gobo
+      groups: ["scan"]
+      spec:
+        gobo: yellow
+    - kind: color
+      groups: ["mh"]
+      spec:
+        color: yellow
+  red-green:
+    - kind: rgb
+      groups: ["wash"]
+      spec:
+        color: FF0000
+    - kind: gobo
+      groups: ["scan"]
+      spec:
+        gobo: green
+    - kind: color
+      groups: ["mh"]
+      spec:
+        color: green
+    - kind: gobo
+      groups: ["mh"]
+      spec:
+        gobo: "star"
+  green-red:
+    - kind: rgb
+      groups: ["wash"]
+      spec:
+        color: 00FF00
+    - kind: gobo
+      groups: ["scan"]
+      spec:
+        gobo: red
+    - kind: color
+      groups: ["mh"]
+      spec:
+        color: red
+    - kind: gobo
+      groups: ["mh"]
+      spec:
+        gobo: "glass"
+  blue-yellow:
+    - kind: rgb
+      groups: ["wash"]
+      spec:
+        color: 0000FF
+    - kind: gobo
+      groups: ["scan"]
+      spec:
+        gobo: yellow
+  magenta-cyan:
+    - kind: rgb
+      groups: ["wash"]
+      spec:
+        color: 990099
+    - kind: gobo
+      groups: ["scan"]
+      spec:
+        gobo: cyan
+    - kind: color
+      groups: ["mh"]
+      spec:
+        color: orange
+  orange-purple:
+    - kind: rgb
+      groups: ["wash"]
+      spec:
+        color: CC6600
+    - kind: gobo
+      groups: ["scan"]
+      spec:
+        gobo: purple
+  purple-orange:
+    - kind: rgb
+      groups: ["wash"]
+      spec:
+        color: 330066
+    - kind: gobo
+      groups: ["scan"]
+      spec:
+        gobo: orange
+  blue-tri:
+    - kind: rgb
+      groups: ["wash"]
+      spec:
+        color: 0000FF
+    - kind: gobo
+      groups: ["scan"]
+      spec:
+        gobo: tri
+  test:
+    - kind: rgb
+      fixtures: ["wl"]
+      spec:
+        color: FF0000
+    - kind: gobo
+      fixtures: ["sl"]
+      spec:
+        gobo: green
+    - kind: gobo
+      fixtures: ["sr"]
+      spec:
+        gobo: blue
+    - kind: rgb
+      fixtures: ["wr"]
+      spec:
+        color: FFFF00
+effects:
+  dim-mh:
+    - kind: value
+      groups: ["mh"]
+      spec:
+        channel: dimmer
+        function: dimmer
+        value: 0
+  dim-scan:
+    - kind: value
+      groups: ["scan"]
+      spec:
+        channel: dimmer
+        function: dimmer
+        value: 0
+    - kind: function
+      groups: ["scan"]
+      spec:
+        channel: move-macro
+        start: m0
+        stop: m12
+  dim-wash:
+    - kind: value
+      groups: ["wash"]
+      spec:
+        channel: dimmer
+        function: dimmer
+        value: 0
+  dim-beam:
+    - kind: value
+      groups: ["moon"]
+      spec:
+        channel: beam
+        function: off
+        value: 0
+  dim-all:
+    - kind: value
+      groups: ["mh"]
+      spec:
+        channel: dimmer
+        function: dimmer
+        value: 0
+    - kind: value
+      groups: ["scan"]
+      spec:
+        channel: dimmer
+        function: dimmer
+        value: 0
+    - kind: function
+      groups: ["scan"]
+      spec:
+        channel: move-macro
+        start: m0
+        stop: m12
+    - kind: value
+      groups: ["wash"]
+      spec:
+        channel: dimmer
+        function: dimmer
+        value: 0
+    - kind: value
+      groups: ["moon"]
+      spec:
+        channel: beam
+        function: off
+        value: 0
+  laser-auto:
+    - kind: function
+      fixtures: ["laser"]
+      spec:
+        channel: mode
+        start: auto
+        stop: off
+  uv:
+    - kind: function
+      groups: ["moon"]
+      spec:
+        channel: uv
+        start: on
+        stop: off
+  fog:
+    - kind: function
+      fixtures: ["switch"]
+      spec:
+        channel: output1
+        start: on
+        stop: off
+  auto:
+    - kind: function
+      groups: ["scan"]
+      spec:
+        channel: settings
+        start: sound-activated
+        stop: none
+    - kind: function
+      groups: ["mh"]
+      spec:
+        channel: auto
+        start: sound
+        stop: off
+    #- kind: function
+    #  groups: ["moon"]
+    #  spec:
+    #    channel: auto
+    #    start: sound
+    #    stop: off
+  reset:
+    - kind: function
+      groups: ["mh", "scan"]
+      spec:
+        channel: settings
+        start: reset
+        stop: none
+  test1:
+    - kind: pan_tilt
+      groups: ["mh"]
+      spec:
+        fixed:
+          pan: 0
+          tilt: 64
+  test2:
+    - kind: pan_tilt
+      groups: ["mh"]
+      spec:
+        fixed:
+          pan: 128
+          tilt: 128
+    #- kind: pan_tilt
+    #  groups: ["scan"]
+    #  spec:
+    #    fixed:
+    #      pan: 140
+    #      tilt: 64
+  test3:
+    - kind: pan_tilt
+      groups: ["mh"]
+      spec:
+        fixed:
+          pan: 255
+          tilt: 191
+  strobe:
+    - kind: strobe
+      groups: ["wash"]
+      spec:
+        speed: 255
+        off: 0
+    - kind: strobe
+      groups: ["mh"]
+      spec:
+        speed: 249
+        off: 0
+    - kind: strobe
+      groups: ["moon"]
+      spec:
+        speed: 10
+        off: 0
+    #- kind: strobe
+    #  groups: ["scan"]
+    #  spec:
+    #    speed: 131
+    #    off: 16 # fixme, off is other function, strobe relies on one chan/func only
+  lr1:
+    - kind: matrix
+      groups: ["wash", "scan", "mh"]
+      spec:
+        matrix:
+          - ["wl", "mh1", "sl", "mh2", "mh3", "sr", "mh4", "wr"]
+        cycle: 100
+        step: 1
+        pattern: 127 # 01111111
+  lr2:
+    - kind: matrix
+      groups: ["wash", "scan", "mh"]
+      spec:
+        matrix:
+          - ["wl", "mh1", "sl", "mh2", "mh3", "sr", "mh4", "wr"]
+        cycle: 100
+        step: 1
+        pattern: 63 # 00111111
+  lr3:
+    - kind: matrix
+      groups: ["wash", "scan", "mh"]
+      spec:
+        matrix:
+          - ["wl", "mh1", "sl", "mh2", "mh3", "sr", "mh4", "wr"]
+        cycle: 100
+        step: 1
+        pattern: 31 # 00011111
+  lr4:
+    - kind: matrix
+      groups: ["wash", "scan", "mh"]
+      spec:
+        matrix:
+          - ["wl", "mh1", "sl", "mh2", "mh3", "sr", "mh4", "wr"]
+        cycle: 100
+        step: 1
+        pattern: 15 # 00001111
+  rl1:
+    - kind: matrix
+      groups: ["wash", "scan", "mh"]
+      spec:
+        matrix:
+          - ["wl", "mh1", "sl", "mh2", "mh3", "sr", "mh4", "wr"]
+        cycle: 100
+        step: -1
+        pattern: 254 # 111111110
+  rl2:
+    - kind: matrix
+      groups: ["wash", "scan", "mh"]
+      spec:
+        matrix:
+          - ["wl", "mh1", "sl", "mh2", "mh3", "sr", "mh4", "wr"]
+        cycle: 100
+        step: -1
+        pattern: 252 # 11111100
+  rl3:
+    - kind: matrix
+      groups: ["wash", "scan", "mh"]
+      spec:
+        matrix:
+          - ["wl", "mh1", "sl", "mh2", "mh3", "sr", "mh4", "wr"]
+        cycle: 100
+        step: -1
+        pattern: 248 # 11111000
+  rl4:
+    - kind: matrix
+      groups: ["wash", "scan", "mh"]
+      spec:
+        matrix:
+          - ["wl", "mh1", "sl", "mh2", "mh3", "sr", "mh4", "wr"]
+        cycle: 100
+        step: -1
+        pattern: 240 # 11110000
+hotkeys:
+  p:
+    kind: scene
+    value: white
+  q:
+    kind: scene
+    value: all-red
+  w:
+    kind: scene
+    value: all-green
+  e:
+    kind: scene
+    value: all-blue
+  r:
+    kind: scene
+    value: red-green
+  t:
+    kind: scene
+    value: green-red
+  y:
+    kind: scene
+    value: blue-yellow
+  u:
+    kind: scene
+    value: magenta-cyan
+  # Effects
+  a:
+    kind: effect
+    value: lr1
+  s:
+    kind: effect
+    value: rl1
+  d:
+    kind: effect
+    value: lr2
+  f:
+    kind: effect
+    value:  rl2
+  g:
+    kind: effect
+    value: lr3
+  h:
+    kind: effect
+    value: rl3
+  j:
+    kind: effect
+    value: lr4
+  k:
+    kind: effect
+    value: rl4
+  l:
+    kind: effect
+    value: strobe
+  # Test effects
+  c:
+    kind: effect
+    value: auto
+  v:
+    kind: effect
+    value: reset
+  b:
+    kind: effect
+    value: test1
+  n:
+    kind: effect
+    value: test2
+  m:
+    kind: effect
+    value: test3
+  z:
+    kind: effect
+    value: laser-auto
+  x:
+    kind: effect
+    value: uv
+  =:
+    kind: effect
+    value: fog
+  # Dimmers
+  0:
+    kind: effect
+    value: dim-all
+  1:
+    kind: effect
+    value: dim-mh
+  2:
+    kind: effect
+    value: dim-scan
+  3:
+    kind: effect
+    value: dim-wash
+  4:
+    kind: effect
+    value: dim-beam
