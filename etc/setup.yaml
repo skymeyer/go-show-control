@@ -1,0 +1,193 @@
+name: default
+devices:
+  dmx1:
+    driver: enttec-dmx-usb-pro
+    #driver: virtual
+    device: /dev/tty.usbserial-EN346679
+universes:
+  default:
+    output:
+      device: dmx1
+      universe: 0
+fixtures:
+  moonl:
+    kind: LaluceNatzDerby
+    universe: default
+    mode: 7ch
+    address: 8
+  moonr:
+    kind: LaluceNatzDerby
+    universe: default
+    mode: 7ch
+    address: 15
+  switch:
+    kind: Decoder3channel
+    universe: default
+    mode: 3ch
+    address: 58
+  laser:
+    kind: UKing-ZQ03003
+    universe: default
+    mode: 7ch
+    address: 1
+  laser-rgb-1:
+    kind: GruolinRGBFullColor
+    universe: default
+    mode: 10ch
+    address: 143
+  wl:
+    kind: Betopper-LPC008S
+    universe: default
+    mode: 7ch
+    address: 22
+  wr:
+    kind: Betopper-LPC008S
+    universe: default
+    mode: 7ch
+    address: 29
+  w1:
+    kind: UKing-RGB-36
+    universe: default
+    mode: 7ch
+    address: 182
+  w2:
+    kind: UKing-RGB-36
+    universe: default
+    mode: 7ch
+    address: 175
+  w3:
+    kind: UKing-RGB-36
+    universe: default
+    mode: 7ch
+    address: 189
+  w4:
+    kind: UKing-RGB-36
+    universe: default
+    mode: 7ch
+    address: 196
+  mh1:
+    kind: XPCLEOYZ-60w-90w-mini-led-spot
+    universe: default
+    mode: 11ch
+    address: 61
+  mh2:
+    kind: XPCLEOYZ-60w-90w-mini-led-spot
+    universe: default
+    mode: 11ch
+    address: 72
+  mh3:
+    kind: XPCLEOYZ-60w-90w-mini-led-spot
+    universe: default
+    mode: 11ch
+    address: 83
+  mh4:
+    kind: XPCLEOYZ-60w-90w-mini-led-spot
+    universe: default
+    mode: 11ch
+    address: 94
+  s1:
+    kind: Chauvet-Intimidator-Scan-110
+    universe: default
+    mode: 11ch
+    address: 36
+  s2:
+    kind: Chauvet-Intimidator-Scan-110
+    universe: default
+    mode: 11ch
+    address: 153
+  s3:
+    kind: Chauvet-Intimidator-Scan-110
+    universe: default
+    mode: 11ch
+    address: 164
+  s4:
+    kind: Chauvet-Intimidator-Scan-110
+    universe: default
+    mode: 11ch
+    address: 47
+  strip:
+    kind: RockvilleMotionStrip
+    universe: default
+    mode: 38ch
+    address: 105
+  strip1:
+    kind: virtual
+    real: strip
+    map:
+      rgb8: rgb
+  strip2:
+    kind: virtual
+    real: strip
+    map:
+      rgb7: rgb
+  strip3:
+    kind: virtual
+    real: strip
+    map:
+      rgb6: rgb
+  strip4:
+    kind: virtual
+    real: strip
+    map:
+      rgb5: rgb
+  strip5:
+    kind: virtual
+    real: strip
+    map:
+      rgb4: rgb
+  strip6:
+    kind: virtual
+    real: strip
+    map:
+      rgb3: rgb
+  strip7:
+    kind: virtual
+    real: strip
+    map:
+      rgb2: rgb
+  strip8:
+    kind: virtual
+    real: strip
+    map:
+      rgb1: rgb
+groups:
+  moon:
+    members: ["moonl", "moonr"]
+  laser:
+    members: ["laser"]
+  laser-rgb:
+    members: ["laser-rgb-1"]
+  strip:
+    members: ["strip"]
+  stripheads:
+    members: ["strip1","strip2","strip3","strip4","strip5","strip6","strip7","strip8"]
+  wash:
+    members: ["wl", "w1", "w2", "w3", "w4", "wr"]
+  wash-outer:
+    members: ["wl", "wr"]
+  wash-inner:
+    members: ["w1", "w2", "w3", "w4"]
+  wash-inner-left:
+    members: ["w1", "w2"]
+  wash-inner-right:
+    members: ["w3", "w4"]
+  scan:
+    members: ["s1", "s2", "s3", "s4"]
+  scan-left:
+    members: ["s1", "s2"]
+  scan-right:
+    members: ["s3", "s4"]
+  scan-outer:
+    members: ["s1", "s4"]
+  scan-inner:
+    members: ["s2", "s3"]
+  mh:
+    members: ["mh1", "mh2", "mh3", "mh4"]
+  mh-left:
+    members: ["mh1", "mh2"]
+  mh-right:
+    members: ["mh3", "mh4"]
+  mh-outer:
+    members: ["mh1", "mh4"]
+  mh-inner:
+    members: ["mh2", "mh3"]

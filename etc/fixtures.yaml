@@ -1,753 +1,1699 @@
-UKing-ZQ03003:
-  manufacturer: U'King
-  model: 4 color laser  ZQ03003
-  heads:
-    fixed: {}
+virtual:
+  manufacturer: Built-in
+  model: Virtual device
+GruolinRGBFullColor:
+  manufacturer: Gruolin
+  model: RGB Full Color Laser
   modes:
-    7ch:
-      mode:
-        channel: 1
-        description: Mode
-        default: 0
-        functions:
-          off:
-            features: []
-            min: 0
-            max: 49
-          static:
-            features: []
-            min: 50
-            max: 99
-          dynamic:
-            features: []
-            min: 100
-            max: 149
-          sound:
-            features: []
-            min: 150
-            max: 199
-          auto:
-            features: []
-            min: 200
-            max: 255
-      pattern:
-        channel: 2
-        description: Static/dynamic pattern selection
-        default: 0
-        functions:
-          select:
-            features: []
-            min: 0
-            max: 255
-      pan:
-        channel: 3
-        description: X position
-        default: 0
-        functions:
-          pan:
-            features: ["pan"]
-            min: 0
-            max: 255
-      tilt:
-        channel: 4
-        description: Y position
-        default: 0
-        functions:
-          tilt:
-            features: ["tilt"]
-            min: 0
-            max: 255
-      scan-speed:
-        channel: 5
-        description: scan speed (fast - slow)
-        default: 0
-        functions:
-          speed:
-            features: []
-            min: 0
-            max: 255
-Decoder3channel:
-  manufacturer: unknown
-  model: 3 channel DMX decoder
-  heads:
-    fixed: {}
+    10ch:
+      features:
+        manual:
+          kind: laser
+          spec:
+            off:
+              channel: mode
+              attribute: off
+            static:
+              channel: mode
+              attribute: pattern
+            color:
+              channel: color
+              attribute: value
+            pattern:
+              channel: pattern
+              attribute: value
+            size:
+              channel: pattern-size
+              attribute: value
+            angle:
+              channel: angle
+              attribute: value
+            hangle:
+              channel: hangle
+              attribute: value
+            vangle:
+              channel: vangle
+              attribute: value
+            hpos:
+              channel: hpos
+              attribute: value
+            vpos:
+              channel: vpos
+              attribute: value
+            line:
+              channel: node
+              attribute: value
+      dmx:
+        mode:
+          channel: 1
+          description: Mode selection
+          default: 0
+          attributes:
+            off:
+              min: 0
+              max: 63
+            pattern:
+              min: 64
+              max: 127
+            auto:
+              min: 128
+              max: 191
+            sound:
+              min: 192
+              max: 255
+        pattern:
+          channel: 2
+          description: Pattern selection when ch1/pattern is selected
+          default: 0
+          attributes:
+            value: # TODO: test diff patterns
+              min: 0
+              max: 255
+        auto:
+          channel: 2
+          description: Auto mode when ch1/auto is selected
+          default: 0
+          attributes:
+            auto1:
+              min: 0
+              max: 63
+            auto2:
+              min: 64
+              max: 127
+            auto3:
+              min: 128
+              max: 191
+            auto4:
+              min: 192
+              max: 255
+        sound:
+          channel: 2
+          description: Sound mode when ch1/sound is selected
+          default: 0
+          attributes:
+            sound1:
+              min: 0
+              max: 63
+            sound2:
+              min: 64
+              max: 127
+            sound3:
+              min: 128
+              max: 191
+            sound4:
+              min: 192
+              max: 255
+        angle: # rotate forward, reverse around center
+          channel: 3
+          description: Angle control
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            select:
+              min: 0
+              max: 127
+            forward:
+              min: 128
+              max: 191
+            reverse:
+              min: 192
+              max: 255
+        hangle: # stretch horizontally
+          channel: 4
+          description: Horizontal angle
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            position:
+              min: 0
+              max: 127
+            speed:
+              min: 128
+              max: 255
+        vangle:
+          channel: 5
+          description: Vertical angle
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            position:
+              min: 0
+              max: 127
+            speed:
+              min: 128
+              max: 255
+        hpos:
+          channel: 6
+          description: Horizontal position
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            position:
+              min: 0
+              max: 127
+            speed:
+              min: 128
+              max: 255
+        vpos:
+          channel: 7
+          description: Vertical position
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            position:
+              min: 0
+              max: 127
+            speed:
+              min: 128
+              max: 255
+        pattern-size:
+          channel: 8
+          description: Pattern size control
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            fixed: # big to small
+              min: 0
+              max: 63
+            large-to-small:
+              min: 64
+              max: 127
+            small-to-large:
+              min: 128
+              max: 191
+            zoom:
+              min: 192
+              max: 255
+        color:
+          channel: 9
+          description: Color control
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            mono:
+              min: 0
+              max: 63
+            color:
+              min: 64
+              max: 127
+            mono-auto:
+              min: 128
+              max: 191
+            color-mix:
+              min: 192
+              max: 255
+        node:
+          channel: 10
+          description: Node control
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            mode1:
+              min: 0
+              max: 127
+            mode2:
+              min: 128
+              max: 255
+RockvilleMotionStrip:
+  manufacturer: Rockville
+  model: Motion Strip
   modes:
-    3ch:
-      output1:
-        channel: 1
-        description: relais 1
-        default: 0
-        functions:
-          off:
-            features: []
-            min: 0
-            max: 127
-          on:
-            features: []
-            min: 128
-            max: 255
-      output2:
-        channel: 2
-        description: relais 2
-        default: 0
-        functions:
-          off:
-            features: []
-            min: 0
-            max: 127
-          on:
-            features: []
-            min: 128
-            max: 255
-      output3:
-        channel: 3
-        description: relais 3
-        default: 0
-        functions:
-          off:
-            features: []
-            min: 0
-            max: 127
-          on:
-            features: []
-            min: 128
-            max: 255
-LaluceNatzDerby:
-  manufacturer: Laluce Natz
-  model: DJ Derby Effect Light
-  heads:
-    fixed: {}
-  modes:
-    7ch:
-      uv:
-        channel: 1
-        description: uv
-        default: 0
-        functions:
-          off:
-            features: []
-            min: 0
-            max: 9
-          on:
-            features: []
-            min: 10
-            max: 255
-      white:
-        channel: 2
-        description: white light
-        default: 0
-        functions:
-          off:
-            features: []
-            min: 0
-            max: 9
-          on:
-            features: []
-            min: 10
-            max: 255
-      beam:
-        channel: 3
-        description: moon flower beam
-        default: 0
-        functions:
-          off:
-            features: ["gobo"]
-            min: 0
-            max: 9
-          red:
-            features: ["gobo"]
-            min: 10
-            max: 44
-          orange:
-            features: ["gobo"]
-            min: 45
-            max: 79
-          blue:
-            features: ["gobo"]
-            min: 80
-            max: 114
-          combo61:
-            features: ["gobo"]
-            min: 115
-            max: 149
-          combo62:
-            features: ["gobo"]
-            min: 150
-            max: 184
-          combo63:
-            features: ["gobo"]
-            min: 185
-            max: 219
-          combo9:
-            features: ["gobo"]
-            min: 220
-            max: 255
-      strobe:
-        channel: 5
-        description: General strobe (fast - slow), from 10-255
-        default: 0
-        functions:
-          strobe:
-            features: ["strobe"]
-            min: 0
-            max: 255
-      speed:
-        channel: 6
-        description: Beam rotating speed (fast - slow), from 10-255
-        default: 0
-        functions:
-          speed:
-            features: []
-            min: 0
-            max: 255
-      auto:
-        channel: 7
-        description: Auto mode
-        default: 0
-        functions:
-          off:
-            features: []
-            min: 0
-            max: 50
-          auto:
-            features: []
-            min: 51
-            max: 200
-          sound:
-            features: []
-            min: 201
-            max: 250
-          sound-no-colod:
-            features: []
-            min: 251
-            max: 255
-Chauvet-Intimidator-Scan-110:
-  manufacturer: Chauvet
-  model: Intimidator Scan 110
-  heads:
-    fixed: {}
-  modes:
-    11ch:
-      pan:
-        channel: 1
-        description: pan
-        default: 0
-        functions:
-          pan:
-            features: ["pan"]
-            min: 0
-            max: 255
-      pan-fine:
-        channel: 2
-        description: pan fine
-        default: 0
-        functions:
-          pan-fine:
-            features: ["pan-fine"]
-            min: 0
-            max: 255
-      tilt:
-        channel: 3
-        description: tilt
-        default: 0
-        functions:
-          tilt:
-            features: ["tilt"]
-            min: 0
-            max: 255
-      tilt-fine:
-        channel: 4
-        description: tilt fine
-        default: 0
-        functions:
-          tilt-fine:
-            features: ["tile-fine"]
-            min: 0
-            max: 255
-      speed:
-        channel: 5
-        description: Pan/tilt speed
-        default: 0
-        functions:
-          pantilt:
-            features: []
-            min: 0
-            max: 255
-      gobo:
-        channel: 6
-        description: Gobo/Color Wheel
-        default: 0
-        functions:
-          white:
-            features: ["gobo"]
-            min: 0
-            max: 28
-          yellow:
-            features: ["gobo"]
-            min: 29
-            max: 56
-          red:
-            features: ["gobo"]
-            min: 57
-            max: 85
-          green:
-            features: ["gobo"]
-            min: 86
-            max: 113
-          blue:
-            features: ["gobo"]
-            min: 114
-            max: 142
-          tri:
-            features: ["gobo"]
-            min: 143
-            max: 170
-          purple:
-            features: ["gobo"]
-            min: 171
-            max: 199
-          orange:
-            features: ["gobo"]
-            min: 200
-            max: 227
-          cyan:
-            features: ["gobo"]
-            min: 228
-            max: 255
-      strobe:
-        channel: 7
-        description: Strobe
-        default: 0
-        functions:
-          off:
-            features: []
-            min: 0
-            max: 15
-          fixed:
-            features: ["strobe"]
-            min: 16
-            max: 131
-          pulse-inverse:
-            features: []
-            min: 140
-            max: 181
-          pulse:
-            features: []
-            min: 190
-            max: 231
-          random:
-            features: []
-            min: 240
-            max: 247
-      dimmer:
-        channel: 8
-        description: General dimming
-        default: 0
-        functions:
-          dimmer:
-            features: ["master_dimmer"]
-            min: 0
-            max: 255
-      settings:
-        channel: 9
-        description: Functions
-        default: 0
-        functions:
-          none:
-            features: []
-            min: 0
-            max: 69
-          blackout-move-on:
-            features: []
-            min: 70
-            max: 89
-          blackout-move-off:
-            features: []
-            min: 90
-            max: 109
-          blackout-gobo-on:
-            features: []
-            min: 110
-            max: 129
-          blackout-gobo-off:
-            features: []
-            min: 130
-            max: 149
-          reset:
-            features: []
-            min: 200
-            max: 209
-          sound-activated:
-            features: []
-            min: 250
-            max: 255
-      move-macro:
-        channel: 10
-        description: Movement Macro
-        default: 0
-        functions:
-          m0:
-            features: []
-            min: 0
-            max: 15
-          m1:
-            features: []
-            min: 16
-            max: 35
-          m2:
-            features: []
-            min: 36
-            max: 55
-          m3:
-            features: []
-            min: 56
-            max: 75
-          m4:
-            features: []
-            min: 76
-            max: 95
-          m5:
-            features: []
-            min: 96
-            max: 115
-          m6:
-            features: []
-            min: 116
-            max: 135
-          m7:
-            features: []
-            min: 136
-            max: 155
-          m8:
-            features: []
-            min: 156
-            max: 175
-          m9:
-            features: []
-            min: 176
-            max: 195
-          m10:
-            features: []
-            min: 196
-            max: 215
-          m11:
-            features: []
-            min: 216
-            max: 235
-          m12:
-            features: []
-            min: 236
-            max: 255
-      move-macro-speed:
-        channel: 11
-        description: Movement Macro speed
-        default: 0
-        functions:
-          speed:
-            features: []
-            min: 0
-            max: 255
+    38ch:
+      features:
+        dimmer:
+          kind: dimmer
+          spec:
+            channel: dimmer
+            attribute: value
+        strobe:
+          kind: strobe
+          spec:
+            channel: strobe
+            attribute: speed
+        position:
+          kind: pantilt
+          spec:
+            pan:
+              channel: pan
+              attribute: value
+            speed:
+              channel: pan-speed
+              attribute: value
+        rgb:
+          kind: rgbw
+          spec:
+            red:
+              - channel: head1R
+                attribute: value
+              - channel: head2R
+                attribute: value
+              - channel: head3R
+                attribute: value
+              - channel: head4R
+                attribute: value
+              - channel: head5R
+                attribute: value
+              - channel: head6R
+                attribute: value
+              - channel: head7R
+                attribute: value
+              - channel: head8R
+                attribute: value
+            green:
+              - channel: head1G
+                attribute: value
+              - channel: head2G
+                attribute: value
+              - channel: head3G
+                attribute: value
+              - channel: head4G
+                attribute: value
+              - channel: head5G
+                attribute: value
+              - channel: head6G
+                attribute: value
+              - channel: head7G
+                attribute: value
+              - channel: head8G
+                attribute: value
+            blue:
+              - channel: head1B
+                attribute: value
+              - channel: head2B
+                attribute: value
+              - channel: head3B
+                attribute: value
+              - channel: head4B
+                attribute: value
+              - channel: head5B
+                attribute: value
+              - channel: head6B
+                attribute: value
+              - channel: head7B
+                attribute: value
+              - channel: head8B
+                attribute: value
+            white:
+              - channel: head1W
+                attribute: value
+              - channel: head2W
+                attribute: value
+              - channel: head3W
+                attribute: value
+              - channel: head4W
+                attribute: value
+              - channel: head5W
+                attribute: value
+              - channel: head6W
+                attribute: value
+              - channel: head7W
+                attribute: value
+              - channel: head8W
+                attribute: value
+        rgb1:
+          kind: rgbw
+          spec:
+            red:
+              - channel: head1R
+                attribute: value
+            green:
+              - channel: head1G
+                attribute: value
+            blue:
+              - channel: head1B
+                attribute: value
+            white:
+              - channel: head1W
+                attribute: value
+        rgb2:
+          kind: rgbw
+          spec:
+            red:
+              - channel: head2R
+                attribute: value
+            green:
+              - channel: head2G
+                attribute: value
+            blue:
+              - channel: head2B
+                attribute: value
+            white:
+              - channel: head2W
+                attribute: value
+        rgb3:
+          kind: rgbw
+          spec:
+            red:
+              - channel: head3R
+                attribute: value
+            green:
+              - channel: head3G
+                attribute: value
+            blue:
+              - channel: head3B
+                attribute: value
+            white:
+              - channel: head3W
+                attribute: value
+        rgb4:
+          kind: rgbw
+          spec:
+            red:
+              - channel: head4R
+                attribute: value
+            green:
+              - channel: head4G
+                attribute: value
+            blue:
+              - channel: head4B
+                attribute: value
+            white:
+              - channel: head4W
+                attribute: value
+        rgb5:
+          kind: rgbw
+          spec:
+            red:
+              - channel: head5R
+                attribute: value
+            green:
+              - channel: head5G
+                attribute: value
+            blue:
+              - channel: head5B
+                attribute: value
+            white:
+              - channel: head5W
+                attribute: value
+        rgb6:
+          kind: rgbw
+          spec:
+            red:
+              - channel: head6R
+                attribute: value
+            green:
+              - channel: head6G
+                attribute: value
+            blue:
+              - channel: head6B
+                attribute: value
+            white:
+              - channel: head6W
+                attribute: value
+        rgb7:
+          kind: rgbw
+          spec:
+            red:
+              - channel: head7R
+                attribute: value
+            green:
+              - channel: head7G
+                attribute: value
+            blue:
+              - channel: head7B
+                attribute: value
+            white:
+              - channel: head7W
+                attribute: value
+        rgb8:
+          kind: rgbw
+          spec:
+            red:
+              - channel: head8R
+                attribute: value
+            green:
+              - channel: head8G
+                attribute: value
+            blue:
+              - channel: head8B
+                attribute: value
+            white:
+              - channel: head8W
+                attribute: value
+      dmx:
+        pan:
+          channel: 1
+          description: Pan
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        pan-speed:
+          channel: 2
+          description: Pan speed
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        control:
+          channel: 3
+          desciption: control
+          default: 0
+          attributes:
+            manual:
+              min: 0
+              max: 10
+            auto1: # all on, cycle RGBW
+              min: 11
+              max: 20
+            auto2: # chaser LR one, cycle RGBW
+              min: 21
+              max: 31
+            auto3: # chaser LR, VU meter, cycle RGBW
+              min: 32
+              max: 42
+            auto4: # chaser RL, VU meter, cycle RGBW
+              min: 43
+              max: 53
+            auto5: # chaser out-mid, cycle RGBW
+              min: 54
+              max: 64
+            auto6: # chaser LRL one, cycle RGBW
+              min: 65
+              max: 75
+            auto7: # chaser out-mid, dual color
+              min: 76
+              max: 86
+            auto8: # dual chaser, white
+              min: 87
+              max: 97
+            auto9:
+              min: 98
+              max: 108
+            auto10:
+              min: 109
+              max: 119
+            auto11:
+              min: 120
+              max: 130
+            auto12:
+              min: 131
+              max: 141
+            auto13:
+              min: 142
+              max: 152
+            auto14:
+              min: 153
+              max: 163
+            auto15:
+              min: 164
+              max: 174
+            auto16:
+              min: 175
+              max: 185
+            auto17:
+              min: 186
+              max: 196
+            auto18:
+              min: 197
+              max: 207
+            auto19:
+              min: 208
+              max: 218
+            auto20:
+              min: 219
+              max: 229
+            auto21:
+              min: 230
+              max: 240
+            auto22:
+              min: 241
+              max: 250
+            sound:
+              min: 251
+              max: 255
+        built-in-speed:
+          channel: 4
+          description: Built-in speed
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        dimmer:
+          channel: 5
+          description: General dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        strobe:
+          channel: 6
+          description: Strobe
+          default: 0
+          attributes:
+            speed:
+              min: 0
+              max: 255
+        head1R:
+          channel: 7
+          description: Red
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head1G:
+          channel: 8
+          description: Green
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head1B:
+          channel: 9
+          description: Blue
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head1W:
+          channel: 10
+          description: White
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head2R:
+          channel: 11
+          description: Red
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head2G:
+          channel: 12
+          description: Green
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head2B:
+          channel: 13
+          description: Blue
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head2W:
+          channel: 14
+          description: White
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head3R:
+          channel: 15
+          description: Red
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head3G:
+          channel: 16
+          description: Green
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head3B:
+          channel: 17
+          description: Blue
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head3W:
+          channel: 18
+          description: White
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head4R:
+          channel: 19
+          description: Red
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head4G:
+          channel: 20
+          description: Green
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head4B:
+          channel: 21
+          description: Blue
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head4W:
+          channel: 22
+          description: White
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head5R:
+          channel: 23
+          description: Red
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head5G:
+          channel: 24
+          description: Green
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head5B:
+          channel: 25
+          description: Blue
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head5W:
+          channel: 26
+          description: White
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head6R:
+          channel: 27
+          description: Red
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head6G:
+          channel: 28
+          description: Green
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head6B:
+          channel: 29
+          description: Blue
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head6W:
+          channel: 30
+          description: White
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head7R:
+          channel: 31
+          description: Red
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head7G:
+          channel: 32
+          description: Green
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head7B:
+          channel: 33
+          description: Blue
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head7W:
+          channel: 34
+          description: White
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head8R:
+          channel: 35
+          description: Red
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head8G:
+          channel: 36
+          description: Green
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head8B:
+          channel: 37
+          description: Blue
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        head8W:
+          channel: 38
+          description: White
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
 Betopper-LPC008S:
   manufacturer: Betopper
   model: LPC008S
-  heads:
-    fixed: {}
   modes:
     7ch:
-      dimmer:
-        channel: 1
-        description: General dimming
-        default: 0
-        functions:
-          dimmer:
-            features: ["master_dimmer"]
-            min: 0
-            max: 255
-      red:
-        channel: 2
-        description: Red dimming
-        default: 0
-        functions:
-          red:
-            features: ["rgb_red"]
-            min: 0
-            max: 255
-      green:
-        channel: 3
-        description: Green dimming
-        default: 0
-        functions:
-          green:
-            features: ["rgb_green"]
-            min: 0
-            max: 255
-      blue:
-        channel: 4
-        description: Blue dimming
-        default: 0
-        functions:
-          blue:
-            features: ["rgb_blue"]
-            min: 0
-            max: 255
-      strobe:
-        channel: 5
-        description: General strobe
-        default: 0
-        functions:
-          strobe:
-            features: ["strobe"]
-            min: 0
-            max: 255
+      features:
+        dimmer:
+          kind: dimmer
+          spec:
+            channel: dimmer
+            attribute: value
+        strobe:
+          kind: strobe
+          spec:
+            channel: strobe
+            attribute: value
+        rgb:
+          kind: rgbw
+          spec:
+            red:
+              - channel: red
+                attribute: value
+            green:
+              - channel: green
+                attribute: value
+            blue:
+              - channel: blue
+                attribute: value
+      dmx:
+        dimmer:
+          channel: 1
+          description: General dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        red:
+          channel: 2
+          description: Red dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        green:
+          channel: 3
+          description: Green dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        blue:
+          channel: 4
+          description: Blue dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        strobe:
+          channel: 5
+          description: General strobe
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+Chauvet-Intimidator-Scan-110:
+  manufacturer: Chauvet
+  model: Intimidator Scan 110
+  modes:
+    11ch:
+      features:
+        dimmer:
+          kind: dimmer
+          spec:
+            channel: dimmer
+            attribute: value
+        strobe:
+          kind: strobe
+          spec:
+            channel: strobe
+            attribute: fixed
+            off:
+              channel: strobe
+              attribute: off
+              value: 0
+        strobe-pulse:
+          kind: strobe
+          spec:
+            channel: strobe
+            attribute: pulse
+            off:
+              channel: strobe
+              attribute: off
+              value: 0
+        strobe-pulse2:
+          kind: strobe
+          spec:
+            channel: strobe
+            attribute: pulse-inverse
+            off:
+              channel: strobe
+              attribute: off
+              value: 0
+        color:
+          kind: gobo
+          spec:
+            channel: gobo
+        position:
+          kind: pantilt
+          spec:
+            pan:
+              channel: pan
+              attribute: value
+            panFine:
+              channel: pan-fine
+              attribute: value
+            tilt:
+              channel: tilt
+              attribute: value
+            tiltFine:
+              channel: tilt-fine
+              attribute: value
+            speed:
+              channel: speed
+              attribute: value
+      dmx:
+        pan:
+          channel: 1
+          description: pan
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        pan-fine:
+          channel: 2
+          description: pan fine
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        tilt:
+          channel: 3
+          description: tilt
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        tilt-fine:
+          channel: 4
+          description: tilt fine
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        speed:
+          channel: 5
+          description: Pan/tilt speed
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        gobo:
+          channel: 6
+          description: Gobo/Color Wheel
+          default: 0
+          attributes:
+            white:
+              min: 0
+              max: 28
+            yellow:
+              min: 29
+              max: 56
+            red:
+              min: 57
+              max: 85
+            green:
+              min: 86
+              max: 113
+            blue:
+              min: 114
+              max: 142
+            tri:
+              min: 143
+              max: 170
+            magenta:
+              min: 171
+              max: 199
+            orange:
+              min: 200
+              max: 227
+            cyan:
+              min: 228
+              max: 255
+        strobe:
+          channel: 7
+          description: Strobe
+          default: 0
+          attributes:
+            off:
+              min: 0
+              max: 15
+            fixed:
+              min: 16
+              max: 131
+            pulse-inverse:
+              min: 140
+              max: 181
+            pulse:
+              min: 190
+              max: 231
+            random:
+              min: 240
+              max: 247
+        dimmer:
+          channel: 8
+          description: General dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        settings:
+          channel: 9
+          description: Functions
+          default: 0
+          attributes:
+            none:
+              min: 0
+              max: 69
+            blackout-move-on:
+              min: 70
+              max: 89
+            blackout-move-off:
+              min: 90
+              max: 109
+            blackout-gobo-on:
+              min: 110
+              max: 129
+            blackout-gobo-off:
+              min: 130
+              max: 149
+            reset:
+              min: 200
+              max: 209
+            sound-activated:
+              min: 250
+              max: 255
+        move-macro:
+          channel: 10
+          description: Movement Macro
+          default: 0
+          attributes:
+            m0:
+              min: 0
+              max: 15
+            m1:
+              min: 16
+              max: 35
+            m2:
+              min: 36
+              max: 55
+            m3:
+              min: 56
+              max: 75
+            m4:
+              min: 76
+              max: 95
+            m5:
+              min: 96
+              max: 115
+            m6:
+              min: 116
+              max: 135
+            m7:
+              min: 136
+              max: 155
+            m8:
+              min: 156
+              max: 175
+            m9:
+              min: 176
+              max: 195
+            m10:
+              min: 196
+              max: 215
+            m11:
+              min: 216
+              max: 235
+            m12:
+              min: 236
+              max: 255
+        move-macro-speed:
+          channel: 11
+          description: Movement Macro speed
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
 XPCLEOYZ-60w-90w-mini-led-spot:
   manufacturer: Shenzen Yuanzhi
   model: XPCLEOYZ 60/90W LED Moving Head Light
-  heads:
-    fixed: {}
   modes:
     11ch:
-      pan:
-        channel: 1
-        description: pan
-        default: 0
-        functions:
-          pan:
-            features: ["pan"]
-            min: 0
-            max: 255
-      pan-fine:
-        channel: 2
-        description: pan fine
-        default: 0
-        functions:
-          pan-fine:
-            features: ["pan-fine"]
-            min: 0
-            max: 255
-      tilt:
-        channel: 3
-        description: tilt
-        default: 0
-        functions:
-          tilt:
-            features: ["tilt"]
-            min: 0
-            max: 255
-      tilt-fine:
-        channel: 4
-        description: tilt fine
-        default: 0
-        functions:
-          tilt-fine:
-            features: ["tile-fine"]
-            min: 0
-            max: 255
-      color:
-        channel: 5
-        description: Color
-        default: 0
-        functions:
-          white:
-            features: ["color"]
-            min: 0
-            max: 9
-          red:
-            features: ["color"]
-            min: 10
-            max: 19
-          orange:
-            features: ["color"]
-            min: 20
-            max: 29
-          yellow:
-            features: ["color"]
-            min: 30
-            max: 39
-          green:
-            features: ["color"]
-            min: 40
-            max: 49
-          blue:
-            features: ["color"]
-            min: 50
-            max: 59
-          magenta:
-            features: ["color"]
-            min: 60
-            max: 69
-          cyan:
-            features: ["color"]
-            min: 70
-            max: 79
-          magenta-cyan:
-            features: ["color"]
-            min: 80
-            max: 89
-          magenta-blue:
-            features: ["color"]
-            min: 90
-            max: 99
-          green-blue:
-            features: ["color"]
-            min: 100
-            max: 109
-          green-yellow:
-            features: ["color"]
-            min: 110
-            max: 119
-          orange-yellow:
-            features: ["color"]
-            min: 120
-            max: 129
-          orange-red:
-            features: ["color"]
-            min: 130
-            max: 139
-          change:
-            features: ["color"]
-            min: 140
-            max: 255
-      gobo:
-        channel: 6
-        description: Gobo
-        default: 0
-        functions:
-          none:
-            features: ["gobo"]
-            min: 0
-            max: 62
-          flower:
-            features: ["gobo"]
-            min: 8
-            max: 15
-          circles:
-            features: ["gobo"]
-            min: 16
-            max: 23
-          triangle:
-            features: ["gobo"]
-            min: 24
-            max: 31
-          star:
-            features: ["gobo"]
-            min: 32
-            max: 40
-          sun:
-            features: ["gobo"]
-            min: 41
-            max: 49
-          whirlpool:
-            features: ["gobo"]
-            min: 50
-            max: 58
-          glass:
-            features: ["gobo"]
-            min: 59
-            max: 63
-          off2:
-            features: ["gobo"]
-            min: 64
-            max: 71
-          # Dither effects
-          flower-dither:
-            features: ["gobo"]
-            min: 72
-            max: 79
-          circles-dither:
-            features: ["gobo"]
-            min: 80
-            max: 87
-          triangle-dither:
-            features: ["gobo"]
-            min: 88
-            max: 95
-          star-dither:
-            features: ["gobo"]
-            min: 96
-            max: 103
-          sun-dither:
-            features: ["gobo"]
-            min: 104
-            max: 111
-          whirlpool-dither:
-            features: ["gobo"]
-            min: 112
-            max: 119
-          glass-dither:
-            features: ["gobo"]
-            min: 120
-            max: 127
-          # auto change slow to fast
-          change:
-            features: ["gobo"]
-            min: 128
-            max: 255
-      strobe:
-        channel: 7
-        description: Strobe
-        default: 0
-        functions:
-          strobe:
-            features: ["strobe"]
-            min: 0
-            max: 249
-      dimmer:
-        channel: 8
-        description: General dimming
-        default: 0
-        functions:
-          dimmer:
-            features: ["master_dimmer"]
-            min: 0
-            max: 255
-      speed:
-        channel: 9
-        description: Pan/tilt speed
-        default: 0
-        functions:
-          pantilt:
-            features: []
-            min: 0
-            max: 255
-      auto:
-        channel: 10
-        description: Auto mode
-        default: 0
-        functions:
-          off:
-            features: []
-            min: 0
-            max: 59
-          auto:
-            features: []
-            min: 60
-            max: 159
-          sound:
-            features: []
-            min: 160
-            max: 255
-      settings:
-        channel: 11
-        description: Additional settings
-        default: 0
-        functions:
-          none:
-            features: []
-            min: 0
-            max: 9
-          pan-running:
-            features: []
-            min: 10
-            max: 100
-          tilt-running:
-            features: []
-            min: 101
-            max: 200
-          pan-tilt-running:
-            features: []
-            min: 201
-            max: 249
-          reset:
-            features: []
-            min: 250
-            max: 255
+      features:
+        dimmer:
+          kind: dimmer
+          spec:
+            channel: dimmer
+            attribute: value
+        strobe:
+          kind: strobe
+          spec:
+            channel: strobe
+            attribute: value
+        color:
+          kind: gobo
+          spec:
+            channel: color
+        figure:
+          kind: gobo
+          spec:
+            channel: gobo
+        position:
+          kind: pantilt
+          spec:
+            pan:
+              channel: pan
+              attribute: value
+            panFine:
+              channel: pan-fine
+              attribute: value
+            tilt:
+              channel: tilt
+              attribute: value
+            tiltFine:
+              channel: tilt-fine
+              attribute: value
+            speed:
+              channel: speed
+              attribute: value
+      dmx:
+        pan:
+          channel: 1
+          description: pan
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        pan-fine:
+          channel: 2
+          description: pan fine
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        tilt:
+          channel: 3
+          description: tilt
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        tilt-fine:
+          channel: 4
+          description: tilt fine
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        color:
+          channel: 5
+          description: Color
+          default: 0
+          attributes:
+            white:
+              min: 0
+              max: 9
+            red:
+              min: 10
+              max: 19
+            orange:
+              min: 20
+              max: 29
+            yellow:
+              min: 30
+              max: 39
+            green:
+              min: 40
+              max: 49
+            blue:
+              min: 50
+              max: 59
+            magenta:
+              min: 60
+              max: 69
+            cyan:
+              min: 70
+              max: 79
+            magenta-cyan:
+              min: 80
+              max: 89
+            magenta-blue:
+              min: 90
+              max: 99
+            green-blue:
+              min: 100
+              max: 109
+            green-yellow:
+              min: 110
+              max: 119
+            orange-yellow:
+              min: 120
+              max: 129
+            orange-red:
+              min: 130
+              max: 139
+            # auto change slow to fast
+            change:
+              min: 140
+              max: 255
+        gobo:
+          channel: 6
+          description: Gobo
+          default: 0
+          attributes:
+            none:
+              min: 0
+              max: 7
+            flower:
+              min: 8
+              max: 15
+            circles:
+              min: 16
+              max: 23
+            triangle:
+              min: 24
+              max: 31
+            star:
+              min: 32
+              max: 40
+            sun:
+              min: 41
+              max: 49
+            whirlpool:
+              min: 50
+              max: 58
+            glass:
+              min: 59
+              max: 63
+            off2:
+              min: 64
+              max: 71
+            # Dither effects
+            flower-dither:
+              min: 72
+              max: 79
+            circles-dither:
+              min: 80
+              max: 87
+            triangle-dither:
+              min: 88
+              max: 95
+            star-dither:
+              min: 96
+              max: 103
+            sun-dither:
+              min: 104
+              max: 111
+            whirlpool-dither:
+              min: 112
+              max: 119
+            glass-dither:
+              min: 120
+              max: 127
+            # auto change slow to fast
+            change:
+              min: 128
+              max: 255
+        strobe:
+          channel: 7
+          description: Strobe
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 249
+        dimmer:
+          channel: 8
+          description: General dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        speed:
+          channel: 9
+          description: Pan/tilt speed
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        auto:
+          channel: 10
+          description: Auto mode
+          default: 0
+          attributes:
+            off:
+              min: 0
+              max: 59
+            auto:
+              min: 60
+              max: 159
+            sound:
+              min: 160
+              max: 255
+        settings:
+          channel: 11
+          description: Additional settings
+          default: 0
+          attributes:
+            none:
+              min: 0
+              max: 9
+            pan-running:
+              min: 10
+              max: 100
+            tilt-running:
+              min: 101
+              max: 200
+            pan-tilt-running:
+              min: 201
+              max: 249
+            reset:
+              min: 250
+              max: 255
+UKing-ZQ03003:
+  manufacturer: U'King
+  model: 4 color laser  ZQ03003
+  modes:
+    7ch:
+      features:
+        manual:
+          kind: laser
+          spec:
+            off:
+              channel: mode
+              attribute: off
+            static:
+              channel: mode
+              attribute: static
+            dynamic:
+              channel: mode
+              attribute: dynamic
+            pattern:
+              channel: pattern
+              attribute: value
+            size:
+              channel: pattern-size
+              attribute: value
+            scanspeed:
+              channel: scan-speed
+              attribute: value
+            dynamicspeed:
+              channel: dynamic-speed
+              attribute: value
+            hpos:
+              channel: pan
+              attribute: value
+            vpos:
+              channel: tilt
+              attribute: value
+      dmx:
+        mode:
+          channel: 1
+          description: Mode
+          default: 0
+          attributes:
+            off:
+              min: 0
+              max: 49
+            static:
+              min: 50
+              max: 99
+            dynamic:
+              min: 100
+              max: 149
+            sound:
+              min: 150
+              max: 199
+            auto:
+              min: 200
+              max: 255
+        pattern:
+          channel: 2
+          description: Static/dynamic pattern selection
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        pan:
+          channel: 3
+          description: X position
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        tilt:
+          channel: 4
+          description: Y position
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        scan-speed:
+          channel: 5
+          description: scan speed (fast - slow)
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        dynamic-speed:
+          channel: 6
+          description: dynamic pattern play speed (fast - slow, 10 grades)
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        pattern-size:
+          channel: 7
+          description: static pattern size (small - big)
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+UKing-RGB-36:
+  manufacturer: U'King
+  model: Stage Light 36 LED Par
+  modes:
+    7ch:
+      features:
+        dimmer:
+          kind: dimmer
+          spec:
+            channel: dimmer
+            attribute: value
+        strobe:
+          kind: strobe
+          spec:
+            channel: strobe
+            attribute: value
+        rgb:
+          kind: rgbw
+          spec:
+            red:
+              - channel: red
+                attribute: value
+            green:
+              - channel: green
+                attribute: value
+            blue:
+              - channel: blue
+                attribute: value
+      dmx:
+        dimmer:
+          channel: 1
+          description: General dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        red:
+          channel: 2
+          description: Red dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        green:
+          channel: 3
+          description: Green dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        blue:
+          channel: 4
+          description: Blue dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        strobe:
+          channel: 5
+          description: General strobe
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+LaluceNatzDerby:
+  manufacturer: Laluce Natz
+  model: DJ Derby Effect Light
+  modes:
+    7ch:
+      features:
+        uv:
+          kind: gobo
+          spec:
+            channel: uv
+        white:
+          kind: gobo
+          spec:
+            channel: white
+        beam:
+          kind: gobo
+          spec:
+            channel: beam
+        speed:
+          kind: strobe
+          spec:
+            channel: speed
+            attribute: value
+        strobe:
+          kind: strobe
+          spec:
+            channel: strobe
+            attribute: value
+      dmx:
+        uv:
+          channel: 1
+          description: uv
+          default: 0
+          attributes:
+            off:
+              min: 0
+              max: 9
+            on:
+              min: 10
+              max: 255
+        white:
+          channel: 2
+          description: white light
+          default: 0
+          attributes:
+            off:
+              min: 0
+              max: 9
+            on:
+              min: 10
+              max: 255
+        beam:
+          channel: 3
+          description: moon flower beam
+          default: 0
+          attributes:
+            off:
+              min: 0
+              max: 9
+            red:
+              min: 10
+              max: 44
+            orange:
+              min: 45
+              max: 79
+            blue:
+              min: 80
+              max: 114
+            combo61:
+              min: 115
+              max: 149
+            combo62:
+              min: 150
+              max: 184
+            combo63:
+              min: 185
+              max: 219
+            combo9:
+              min: 220
+              max: 255
+        strobe:
+          channel: 5
+          description: General strobe (fast - slow), from 10-255
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        speed:
+          channel: 6
+          description: Beam rotating speed (fast - slow), from 10-255
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        auto:
+          channel: 7
+          description: Auto mode
+          default: 0
+          attributes:
+            off:
+              min: 0
+              max: 50
+            auto:
+              min: 51
+              max: 200
+            sound:
+              min: 201
+              max: 250
+            sound-no-colod:
+              min: 251
+              max: 255
+Decoder3channel:
+  manufacturer: unknown
+  model: 3 channel DMX decoder
+  modes:
+    3ch:
+      features: {}
+      dmx:
+        output1:
+          channel: 1
+          description: relais 1
+          default: 0
+          functions:
+            off:
+              min: 0
+              max: 127
+            on:
+              min: 128
+              max: 255
+        output2:
+          channel: 2
+          description: relais 2
+          default: 0
+          functions:
+            off:
+              min: 0
+              max: 127
+            on:
+              min: 128
+              max: 255
+        output3:
+          channel: 3
+          description: relais 3
+          default: 0
+          functions:
+            off:
+              min: 0
+              max: 127
+            on:
+              min: 128
+              max: 255

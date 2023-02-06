@@ -1,0 +1,374 @@
+name: Holiday Party 2023
+
+offset: 0m0s
+
+schedule:
+
+### INTRO ###
+
+- start: 0s
+  stop: 10s
+  seq: ["init"]
+
+- start: 5s
+  stop: 1m3s250ms
+  bpm: 60
+  seq: ["intro-color"]
+
+- start: 32s500ms
+  stop: 1m3s250ms
+  seq: ["intro-pulse"]
+
+- start: 1m8s250ms
+  stop: 1m49s
+  bpm: 60
+  seq: ["intro-welcome"]
+
+- start: 1m49s
+  stop: 5m
+  bpm: 60
+  seq: ["intro-crystal-beams"]
+
+- start: 1m49s
+  seq: ["intro-crystal-chase-flash"]
+
+- start: 1m53s
+  seq: ["intro-crystal-chase-dim"]
+
+- start: 1m55s
+  stop: 5m54s
+  bpm: 30
+  loop : true
+  seq: ["intro-hold"]
+
+
+#############
+### SET 1 ###
+#############
+
+### Intro
+
+- start: 5m54s
+  stop: 7m6s
+  seq: ["s1-intro-scene"]
+  bpm: 30
+  loop: true
+
+- start: 6m5s
+  stop: 6m18s
+  seq: ["s1-intro-beams-1"]
+  loop: true
+
+- start: 6m18s
+  stop: 6m30s
+  seq: ["s1-intro-beams-2"]
+  loop: true
+
+- start: 6m30s
+  stop: 6m40s
+  seq: ["s1-intro-beams-4"]
+  loop: true
+
+- start: 6m40s
+  stop: 6m50s
+  seq: ["s1-intro-beams-5"]
+  loop: true
+
+- start: 6m50s
+  stop: 6m55s
+  seq: ["s1-intro-beams-6"]
+  loop: true
+
+- start: 6m55s
+  stop: 7m4s
+  seq: ["s1-intro-beams-7"]
+  loop: true
+
+###
+
+- start: 7m4s
+  stop: 7m6s
+  seq: ["s1-s1-init"]
+  loop: true
+  bpm: 5
+
+- start: 7m6s
+  stop: 7m39s
+  seq: ["s1-s1-scene-1"]
+  loop: true
+  bpm: 30
+
+- start: 7m6s
+  stop: 7m23s
+  seq: ["s1-s1-pos-1"]
+  loop: true
+  bpm: 5
+
+- start: 7m23s
+  stop: 7m30s
+  seq: ["s1-s1-pos-1"]
+  loop: true
+  bpm: 8
+
+- start: 7m30s
+  stop: 7m39s
+  seq: ["s1-s1-pos-1"]
+  loop: true
+  bpm: 20
+
+- start: 7m39s
+  stop: 7m53s500ms
+  seq: ["s1-s1-scene-2"]
+  loop: true
+  bpm: 65
+
+- start: 7m53s500ms
+  stop: 8m5s
+  seq: ["s1-s1-scene-3"]
+  loop: true
+  bpm: 65
+
+- start: 8m5s
+  stop: 8m9s
+  seq: ["s1-s1-scene-4"]
+  loop: true
+  bpm: 65
+
+- start: 8m9s
+  stop: 8m12s
+  seq: ["s1-s1-init"]
+  loop: true
+  bpm: 5
+
+- start: 8m12s
+  stop: 8m25s
+  seq: ["s1-s1-scene-5"]
+  loop: true
+  bpm: 65
+
+- start: 8m25s
+  stop: 8m28s
+  seq: ["s1-s1-scene-3"]
+  loop: true
+  bpm: 65
+
+- start: 8m28s
+  stop: 8m42s
+  seq: ["s1-s1-scene-5"]
+  loop: true
+  bpm: 65
+
+###
+
+- start: 8m42s
+  stop: 9m3s
+  seq: ["s1-s2-scene-1"]
+  loop: true
+  bpm: 65
+
+- start: 9m3s
+  stop: 9m7s
+  seq: ["s1-s2-scene-2"]
+  loop: true
+  bpm: 65
+
+- start: 9m7s
+  stop: 9m20s
+  seq: ["s1-s2-scene-3"]
+  loop: true
+  bpm: 65
+
+- start: 9m20s
+  stop: 9m21s
+  seq: ["s1-s2-scene-4"]
+  loop: true
+  bpm: 65
+
+- start: 9m21s
+  stop: 9m37s
+  seq: ["s1-s2-scene-3"]
+  loop: true
+  bpm: 65
+
+- start: 9m37s
+  stop: 9m50s
+  seq: ["s1-s2-scene-1"]
+  loop: true
+  bpm: 65
+
+- start: 9m50s
+  stop: 10m21s
+  seq: ["s1-s2-scene-5"]
+  loop: true
+  bpm: 65
+
+- start: 10m21s
+  stop: 10m35s
+  seq: ["s1-s2-scene-6"]
+  loop: true
+  bpm: 65
+
+- start: 10m35s
+  stop: 10m50s
+  seq: ["s1-s2-scene-7"]
+  loop: true
+  bpm: 65
+
+####
+
+- start: 10m50s
+  stop: 10m55s
+  seq: ["s1-s3-scene-1"]
+  loop: true
+
+- start: 10m50s
+  stop: 11m26s # continue
+  seq: ["s1-s3-pos-1"]
+  loop: true
+  bpm: 10
+
+- start: 10m55s
+  stop: 11m12s
+  seq: ["s1-s3-scene-2"]
+  loop: true
+  bpm: 32
+
+- start: 11m3s500ms
+  seq: ["s1-s3-flash"]
+
+- start: 11m12s
+  stop: 11m27s
+  seq: ["s1-s3-scene-3"]
+  loop: true
+  bpm: 130
+
+- start: 11m27s
+  stop: 11m35s
+  seq: ["s1-s3-scene-4"]
+  loop: true
+  bpm: 130
+
+- start: 11m35s
+  stop: 11m39s
+  seq: ["s1-s3-scene-5"]
+  loop: true
+  bpm: 200
+
+- start: 11m39s
+  stop: 11m41s
+  seq: ["s1-s3-scene-6"]
+  loop: true
+  bpm: 200
+
+- start: 11m41s
+  stop: 11m42s
+  seq: ["s1-s3-scene-1"]
+  loop: true
+
+- start: 11m42s
+  stop: 12m11s
+  seq: ["s1-s3-scene-7"]
+  loop: true
+  bpm: 30
+
+###
+
+- start: 12m11s
+  stop: 12m14s
+  seq: ["s1-s4-scene-1"]
+  loop: true
+  bpm: 32
+
+- start: 12m14s
+  stop: 12m22s
+  seq: ["s1-s4-scene-2"]
+  loop: true
+  bpm: 32
+
+- start: 12m22s
+  stop: 12m37s
+  seq: ["s1-s4-scene-3"]
+  loop: true
+  bpm: 65
+
+- start: 12m37s
+  stop: 12m59s
+  seq: ["s1-s4-scene-4"]
+  loop: true
+  bpm: 130
+
+- start: 12m59s
+  stop: 13m29s
+  seq: ["s1-s4-scene-5"]
+  loop: true
+  bpm: 32
+
+###
+
+- start: 13m29s
+  stop: 15m35s
+  seq: ["s1-s5-scene-1"]
+  loop: true
+  bpm: 32
+
+###
+
+- start: 15m35s
+  stop: 16m4s
+  seq: ["s1-s6-scene-1"]
+  loop: true
+  bpm: 32
+
+- start: 16m4s
+  stop: 16m27s
+  seq: ["s1-s6-scene-2"]
+  loop: true
+  bpm: 65
+
+- start: 16m27s
+  stop: 16m52s
+  seq: ["s1-s6-scene-1"]
+  loop: true
+  bpm: 65
+
+###
+
+- start: 16m52s
+  stop: 17m21s
+  seq: ["s1-s7-scene-1"]
+  loop: true
+  bpm: 130
+
+- start: 17m21s
+  stop: 18m6s
+  seq: ["s1-s7-scene-2"]
+  loop: true
+  bpm: 65
+
+###
+
+- start: 18m6s
+  stop: 18m32s
+  seq: ["s1-s8-scene-1"]
+  loop: true
+  bpm: 17
+
+- start: 18m32s
+  stop: 18m46s
+  seq: ["s1-s8-scene-2"]
+  loop: true
+  bpm: 17
+
+- start: 18m46s
+  stop: 19m27s
+  seq: ["s1-s8-scene-3"]
+  loop: true
+  bpm: 150
+
+###
+
+- start: 18m6s
+  stop: 18m32s
+  seq: ["s1-s9-scene-1"]
+  loop: true
+  bpm: 17
