@@ -1,6 +1,7 @@
 name: Holiday Party 2023
 
-offset: 0m0s
+#offset: 0m0s
+offset: 5m54s
 
 schedule:
 

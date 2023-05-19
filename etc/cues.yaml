@@ -1,4 +1,37 @@
 cues:
+  shoot1:
+    - feature: shoot
+      fixtures: ["cannon"]
+      config:
+        launch1: true
+        launch2: false
+        launch3: false
+        launch4: false
+  shoot2:
+    - feature: shoot
+      fixtures: ["cannon"]
+      config:
+        launch1: false
+        launch2: true
+        launch3: false
+        launch4: false
+  shoot3:
+    - feature: shoot
+      fixtures: ["cannon"]
+      config:
+        launch1: false
+        launch2: false
+        launch3: true
+        launch4: false
+  shoot4:
+    - feature: shoot
+      fixtures: ["cannon"]
+      config:
+        launch1: false
+        launch2: false
+        launch3: false
+        launch4: true
+
   calibrate:
     - feature: white
       groups: ["moon"]
@@ -9,18 +42,23 @@ cues:
       config:
         gobo: on
     - feature: rgb
-      groups: ["wash","strip"]
+      groups: ["wash-outer"]
       config:
         red: 255
         green: 255
         blue: 255
-        white: 255
+    - feature: rgb
+      groups: ["wash-boot"]
+      config:
+        red: 0
+        green: 0
+        blue: 255
     - feature: color
       groups: ["scan","mh"]
       config:
         gobo: white
     - feature: dimmer
-      groups: ["scan","mh","strip","wash"]
+      groups: ["scan","mh","wash"]
       config:
         value: 65535
     - feature: position
@@ -35,10 +73,6 @@ cues:
         pan: 32768
         tilt: 0
         speed: 0
-    - feature: position
-      fixtures: ["strip"]
-      config:
-        pan: 40960
 
   warmup:
     - feature: uv
@@ -46,13 +80,17 @@ cues:
       config:
         gobo: on
     - feature: rgb
-      groups: ["wash-inner"]
+      groups: ["wash"]
       config:
         red: 255
         green: 0
         blue: 255
     - feature: dimmer
-      groups: ["wash-inner"]
+      groups: ["wash-outer"]
+      config:
+        value: 8192
+    - feature: dimmer
+      groups: ["wash-boot"]
       config:
         value: 65535
     - feature: position
@@ -73,27 +111,24 @@ cues:
       groups: ["scan"]
       config:
         pan: 32768
-        tilt: 32768
+        tilt: 48000
         speed: 0
     - feature: position
       groups: ["mh"]
       config:
         pan: 32768
-        tilt: 0
+        tilt: 8000
         speed: 0
-    - feature: position
-      fixtures: ["strip"]
-      config:
-        pan: 32768
 
   dim-blackout:
     - feature: dimmer
       groups: ["wash", "scan", "mh", "strip"]
       config:
         value: 0
-  dim-blind: # FIXME
+
+  dim-blind:
     - feature: dimmer
-      groups: ["wash", "scan", "mh", "strip"]
+      groups: ["wash", "scan", "mh"]
       config:
         value: 65535
     - feature: rgb
@@ -106,60 +141,197 @@ cues:
       groups: ["scan", "mh"]
       config:
         gobo: white
+
   dim-default:
     - feature: dimmer
       groups: ["wash-outer"]
       config:
         value: 16000
     - feature: dimmer
-      groups: ["wash-inner"]
+      groups: ["wash-boot"]
       config:
-        value: 32000
+        value: 24000
     - feature: dimmer
-      groups: ["scan", "strip"]
+      groups: ["scan"]
       config:
         value: 65535
     - feature: dimmer
       groups: ["mh"]
       config:
         value: 32000
-  col-red:
+
+  dim-wash-mh:
+    - feature: dimmer
+      groups: ["wash-outer"]
+      config:
+        value: 16000
+    - feature: dimmer
+      groups: ["wash-boot"]
+      config:
+        value: 24000
+    - feature: dimmer
+      groups: ["mh"]
+      config:
+        value: 32000
+
+  dim-wash-scan:
+    - feature: dimmer
+      groups: ["wash-outer"]
+      config:
+        value: 16000
+    - feature: dimmer
+      groups: ["wash-boot"]
+      config:
+        value: 24000
+    - feature: dimmer
+      groups: ["scan"]
+      config:
+        value: 65535
+
+  col-white:
+    - feature: white
+      groups: ["moon"]
+      config:
+        gobo: on
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
     - feature: rgb
-      groups: ["wash", "stripheads"]
+      groups: ["wash-outer"]
+      config:
+        red: 255
+        green: 255
+        blue: 255
+    - feature: rgb
+      groups: ["wash-boot"]
+      config:
+        red: 0
+        green: 0
+        blue: 255
+    - feature: color
+      groups: ["scan","mh"]
+      config:
+        gobo: white
+    - feature: dimmer
+      groups: ["scan","mh","wash"]
+      config:
+        value: 65535
+  col-red:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
+    - feature: rgb
+      groups: ["wash"]
       config:
         red: 255
     - feature: color
       groups: ["scan", "mh"]
       config:
         gobo: red
-  col-red-white:
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: circles
+  col-red-green-1:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
     - feature: rgb
-      groups: ["wash", "stripheads"]
+      groups: ["wash"]
+      config:
+        red: 255
+    - feature: color
+      groups: ["mh"]
+      config:
+        gobo: red
+    - feature: color
+      groups: ["scan"]
+      config:
+        gobo: green
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: flower
+  col-red-green-2:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
+    - feature: rgb
+      groups: ["wash"]
+      config:
+        green: 255
+    - feature: color
+      groups: ["scan"]
+      config:
+        gobo: red
+    - feature: color
+      groups: ["mh"]
+      config:
+        gobo: green
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: circles
+  col-red-white:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
+    - feature: rgb
+      groups: ["wash"]
       config:
         red: 255
     - feature: color
       groups: ["scan", "mh"]
       config:
         gobo: white
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: triangle
   col-green:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
     - feature: rgb
-      groups: ["wash","stripheads"]
+      groups: ["wash"]
       config:
         green: 255
     - feature: color
       groups: ["scan", "mh"]
       config:
         gobo: green
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: star
   col-blue:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
     - feature: rgb
-      groups: ["wash","stripheads"]
+      groups: ["wash"]
       config:
         blue: 255
     - feature: color
       groups: ["scan", "mh"]
       config:
         gobo: blue
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: sun
   col-blue-white:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
     - feature: rgb
       groups: ["wash"]
       config:
@@ -168,9 +340,59 @@ cues:
       groups: ["scan", "mh"]
       config:
         gobo: white
-  col-magenta:
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: whirlpool
+  col-blue-white-1:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
     - feature: rgb
-      groups: ["wash","stripheads"]
+      groups: ["wash"]
+      config:
+        blue: 255
+    - feature: color
+      groups: ["scan"]
+      config:
+        gobo: white
+    - feature: color
+      groups: ["mh"]
+      config:
+        gobo: blue
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: glass
+  col-blue-white-2:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
+    - feature: rgb
+      groups: ["wash"]
+      config:
+        blue: 255
+    - feature: color
+      groups: ["mh"]
+      config:
+        gobo: white
+    - feature: color
+      groups: ["scan"]
+      config:
+        gobo: blue
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: flower
+  col-magenta:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
+    - feature: rgb
+      groups: ["wash"]
       config:
         red: 255
         blue: 255
@@ -178,9 +400,17 @@ cues:
       groups: ["mh","scan"]
       config:
         gobo: magenta
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: circles
   col-magenta-cyan:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
     - feature: rgb
-      groups: ["wash","stripheads"]
+      groups: ["wash"]
       config:
         red: 255
         blue: 255
@@ -188,18 +418,22 @@ cues:
       groups: ["mh","scan"]
       config:
         gobo: cyan
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: triangle
   col-red-orange-yellow:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
     - feature: rgb
-      groups: ["wash-inner"]
+      groups: ["wash-boot"]
       config:
         red: 255
         green: 65
     - feature: rgb
       groups: ["wash-outer"]
-      config:
-        red: 255
-    - feature: rgb
-      groups: ["stripheads"]
       config:
         red: 255
     - feature: color
@@ -210,18 +444,22 @@ cues:
       groups: ["mh"]
       config:
         gobo: orange
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: star
   col-red-orange-white:
+    - feature: uv
+      groups: ["moon"]
+      config:
+        gobo: on
     - feature: rgb
-      groups: ["wash-inner"]
+      groups: ["wash-boot"]
       config:
         red: 255
         green: 65
     - feature: rgb
       groups: ["wash-outer"]
-      config:
-        red: 255
-    - feature: rgb
-      groups: ["stripheads"]
       config:
         red: 255
     - feature: color
@@ -232,6 +470,10 @@ cues:
       groups: ["mh"]
       config:
         gobo: orange
+    - feature: figure
+      groups: ["mh"]
+      config:
+        gobo: star
 
   laser-rgb-green-liquid:
     - feature: manual
@@ -299,10 +541,6 @@ cues:
       config:
         pan: 32767
         tilt: 0
-    - feature: position
-      groups: ["strip"]
-      config:
-        pan: 32767
   pos-intro-crystal-cross:
     - feature: position
       groups: ["scan-left"]
@@ -324,329 +562,6 @@ cues:
       config:
         pan: 35498
         tilt: 0
-    - feature: position
-      groups: ["strip"]
-      config:
-        pan: 40960
-
-  col-intro-1:
-    - feature: rgb
-      groups: ["wash-inner"]
-      config:
-        blue: 255
-    - feature: color
-      groups: ["scan","mh"]
-      config:
-        gobo: magenta
-    - feature: figure
-      groups: ["mh"]
-      config:
-        gobo: triangle
-  col-intro-2:
-    - feature: rgb
-      groups: ["wash-outer"]
-      fixtures: ["w2","w3"]
-      config:
-        red: 255
-        blue: 255
-    - feature: rgb
-      fixtures: ["w1","w4"]
-      config:
-        blue: 255
-    - feature: color
-      groups: ["scan"]
-      config:
-        gobo: white
-    - feature: color
-      groups: ["mh"]
-      config:
-        gobo: white
-    - feature: figure
-      groups: ["mh"]
-      config:
-        gobo: triangle
-  col-intro-3:
-    - feature: rgb
-      groups: ["wash-outer"]
-      fixtures: ["w2","w3"]
-      config:
-        red: 255
-    - feature: rgb
-      fixtures: ["w1","w4"]
-      config:
-        blue: 255
-    - feature: color
-      groups: ["scan"]
-      config:
-        gobo: white
-    - feature: color
-      groups: ["mh"]
-      config:
-        gobo: white
-    - feature: figure
-      groups: ["mh"]
-      config:
-        gobo: triangle
-  col-intro-4:
-    - feature: rgb
-      groups: ["strip"]
-      config:
-        white: 255
-  col-intro-5:
-    - feature: color
-      groups: ["mh"]
-      config:
-        gobo: magenta
-    - feature: rgb
-      groups: ["strip"]
-      config:
-        red: 255
-        blue: 255
-
-  dim-intro-2:
-    - feature: dimmer
-      groups: ["scan"]
-      config:
-        value: 65535
-  dim-intro-3:
-    - feature: dimmer
-      groups: ["mh"]
-      config:
-        value: 32767
-  dim-intro-4:
-    - feature: dimmer
-      groups: ["wash-inner"]
-      config:
-        value: 16000
-    - feature: dimmer
-      groups: ["wash-outer"]
-      config:
-        value: 8000
-    - feature: uv
-      groups: ["moon"]
-      config:
-        gobo: on
-  dim-intro-5:
-    - feature: dimmer
-      groups: ["wash-inner"]
-      config:
-        value: 16000
-    - feature: dimmer
-      groups: ["wash-outer"]
-      config:
-        value: 8000
-    - feature: dimmer
-      groups: ["strip"]
-      config:
-        value: 65535
-    - feature: uv
-      groups: ["moon"]
-      config:
-        gobo: on
-    - feature: dimmer
-      groups: ["scan"]
-      config:
-        value: 49152
-    - feature: dimmer
-      groups: ["mh"]
-      config:
-        value: 16384
-  dim-intro-6:
-    - feature: dimmer
-      groups: ["wash-inner"]
-      config:
-        value: 16000
-    - feature: dimmer
-      groups: ["wash-outer"]
-      config:
-        value: 8000
-    - feature: dimmer
-      groups: ["strip"]
-      config:
-        value: 0
-    - feature: uv
-      groups: ["moon"]
-      config:
-        gobo: off
-    - feature: dimmer
-      groups: ["scan"]
-      config:
-        value: 0
-    - feature: dimmer
-      groups: ["mh"]
-      config:
-        value: 0
-  dim-intro-7:
-    - feature: dimmer
-      groups: ["wash-inner"]
-      config:
-        value: 16000
-    - feature: dimmer
-      groups: ["wash-outer"]
-      config:
-        value: 8000
-    - feature: dimmer
-      groups: ["strip"]
-      config:
-        value: 32767
-    - feature: uv
-      groups: ["moon"]
-      config:
-        gobo: on
-    - feature: dimmer
-      groups: ["mh"]
-      config:
-        value: 16384
-
-  s1-intro-scene:
-    - feature: dimmer
-      groups: ["wash-outer"]
-      config:
-        value: 16000
-    - feature: dimmer
-      groups: ["wash-inner"]
-      config:
-        value: 32000
-    - feature: dimmer
-      groups: ["strip"]
-      config:
-        value: 65535
-    - feature: figure
-      groups: ["mh"]
-      config:
-        gobo: triangle
-
-  s1-s1-init:
-    - feature: figure
-      groups: ["mh"]
-      config:
-        gobo: triangle
-
-  default-scene:
-    - feature: dimmer
-      groups: ["wash-outer"]
-      config:
-        value: 16000
-    - feature: dimmer
-      groups: ["wash-inner"]
-      config:
-        value: 32000
-    - feature: dimmer
-      groups: ["strip"]
-      config:
-        value: 65535
-    - feature: dimmer
-      groups: ["scan"]
-      config:
-        value: 65535
-    - feature: dimmer
-      groups: ["mh"]
-      config:
-        value: 32678
-    - feature: figure
-      groups: ["mh"]
-      config:
-        gobo: triangle
-
-  s1-s1-scene:
-    - feature: dimmer
-      groups: ["wash-outer"]
-      config:
-        value: 16000
-    - feature: dimmer
-      groups: ["wash-inner"]
-      config:
-        value: 32000
-    - feature: dimmer
-      groups: ["strip"]
-      config:
-        value: 65535
-    - feature: dimmer
-      groups: ["mh"]
-      config:
-        value: 32678
-    - feature: dimmer
-      groups: ["scan"]
-      config:
-        value: 48000
-
-  s1-s2-scene:
-    - feature: dimmer
-      groups: ["wash-outer"]
-      config:
-        value: 16000
-    - feature: dimmer
-      groups: ["wash-inner"]
-      config:
-        value: 32000
-    - feature: dimmer
-      groups: ["strip"]
-      config:
-        value: 65535
-    - feature: dimmer
-      groups: ["scan"]
-      config:
-        value: 65535
-    - feature: dimmer
-      groups: ["mh"]
-      config:
-        value: 32678
-    - feature: figure
-      groups: ["mh"]
-      config:
-        gobo: whirlpool
-
-  s1-s3-scene:
-    - feature: dimmer
-      groups: ["wash-outer"]
-      config:
-        value: 16000
-    - feature: dimmer
-      groups: ["wash-inner"]
-      config:
-        value: 32000
-    - feature: dimmer
-      groups: ["strip"]
-      config:
-        value: 65535
-    - feature: dimmer
-      groups: ["scan"]
-      config:
-        value: 65535
-    - feature: dimmer
-      groups: ["mh"]
-      config:
-        value: 32678
-    - feature: figure
-      groups: ["mh"]
-      config:
-        gobo: whirlpool
-
-  s1-s4-scene:
-    - feature: dimmer
-      groups: ["wash-outer"]
-      config:
-        value: 16000
-    - feature: dimmer
-      groups: ["wash-inner"]
-      config:
-        value: 32000
-    - feature: dimmer
-      groups: ["strip"]
-      config:
-        value: 65535
-    - feature: dimmer
-      groups: ["scan"]
-      config:
-        value: 65535
-    - feature: dimmer
-      groups: ["mh"]
-      config:
-        value: 32678
-    - feature: figure
-      groups: ["mh"]
-      config:
-        gobo: circles
 
   # Strobes
   strobe-scan-255:
@@ -759,9 +674,9 @@ cues:
       groups: ["wash"]
       config:
         value: 255
-  strobe-wash-inner-255:
+  strobe-wash-boot-255:
     - feature: strobe
-      groups: ["wash-inner"]
+      groups: ["wash-boot"]
       config:
         value: 255
   strobe-wash-outer-255:
@@ -774,9 +689,9 @@ cues:
       groups: ["wash"]
       config:
         value: 240
-  strobe-wash-inner-180:
+  strobe-wash-boot-180:
     - feature: strobe
-      groups: ["wash-inner"]
+      groups: ["wash-boot"]
       config:
         value: 180
   strobe-wash-outer-240:
@@ -784,11 +699,6 @@ cues:
       groups: ["wash-outer"]
       config:
         value: 240
-  strobe-strip-255:
-    - feature: strobe
-      groups: ["strip"]
-      config:
-        value: 255
   strobe-moon-white:
     - feature: strobe
       groups: ["moon"]
@@ -806,88 +716,14 @@ cues:
       fixtures: ["moonr"]
       config:
         gobo: off
-  dim-chase-strip-1:
-    - feature: rgb
-      fixtures: ["strip1"]
-      config:
-        red: 0
-        green: 0
-        blue: 0
-        white: 0
-  dim-chase-strip-2:
-    - feature: rgb
-      fixtures: ["strip2"]
-      config:
-        red: 0
-        green: 0
-        blue: 0
-        white: 0
-  dim-chase-strip-3:
-    - feature: rgb
-      fixtures: ["strip3"]
-      config:
-        red: 0
-        green: 0
-        blue: 0
-        white: 0
-  dim-chase-strip-4:
-    - feature: rgb
-      fixtures: ["strip4"]
-      config:
-        red: 0
-        green: 0
-        blue: 0
-        white: 0
-  dim-chase-strip-5:
-    - feature: rgb
-      fixtures: ["strip5"]
-      config:
-        red: 0
-        green: 0
-        blue: 0
-        white: 0
-  dim-chase-strip-6:
-    - feature: rgb
-      fixtures: ["strip6"]
-      config:
-        red: 0
-        green: 0
-        blue: 0
-        white: 0
-  dim-chase-strip-7:
-    - feature: rgb
-      fixtures: ["strip7"]
-      config:
-        red: 0
-        green: 0
-        blue: 0
-        white: 0
-  dim-chase-strip-8:
-    - feature: rgb
-      fixtures: ["strip8"]
-      config:
-        red: 0
-        green: 0
-        blue: 0
-        white: 0
-  dim-chase-w1:
+  dim-chase-boot1:
     - feature: dimmer
-      fixtures: ["w1"]
+      fixtures: ["boot1"]
       config:
         value: 0
-  dim-chase-w2:
+  dim-chase-boot2:
     - feature: dimmer
-      fixtures: ["w2"]
-      config:
-        value: 0
-  dim-chase-w3:
-    - feature: dimmer
-      fixtures: ["w3"]
-      config:
-        value: 0
-  dim-chase-w4:
-    - feature: dimmer
-      fixtures: ["w4"]
+      fixtures: ["boot2"]
       config:
         value: 0
   dim-chase-wl:
@@ -920,6 +756,16 @@ cues:
       fixtures: ["s4"]
       config:
         value: 0
+  dim-chase-s5:
+    - feature: dimmer
+      fixtures: ["s5"]
+      config:
+        value: 0
+  dim-chase-s6:
+    - feature: dimmer
+      fixtures: ["s6"]
+      config:
+        value: 0
   dim-chase-mh1:
     - feature: dimmer
       fixtures: ["mh1"]
@@ -950,9 +796,9 @@ cues:
       groups: ["scan"]
       config:
         value: 0
-  dim-chase-wash-inner:
+  dim-chase-wash-boot:
     - feature: dimmer
-      groups: ["wash-inner"]
+      groups: ["wash-boot"]
       config:
         value: 0
   dim-chase-wash-outer:
@@ -960,14 +806,6 @@ cues:
       groups: ["wash-outer"]
       config:
         value: 0
-  dim-chase-strip:
-    - feature: rgb
-      groups: ["stripheads"]
-      config:
-        red: 0
-        green: 0
-        blue: 0
-        white: 0
 
   # Chasers flash
   flash-chase-uv-moonl:
@@ -990,64 +828,14 @@ cues:
       fixtures: ["moonr"]
       config:
         gobo: on
-  flash-chase-strip-1:
-    - feature: rgb
-      fixtures: ["strip1"]
-      config:
-        white: 255
-  flash-chase-strip-2:
-    - feature: rgb
-      fixtures: ["strip2"]
-      config:
-        white: 255
-  flash-chase-strip-3:
-    - feature: rgb
-      fixtures: ["strip3"]
-      config:
-        white: 255
-  flash-chase-strip-4:
-    - feature: rgb
-      fixtures: ["strip4"]
-      config:
-        white: 255
-  flash-chase-strip-5:
-    - feature: rgb
-      fixtures: ["strip5"]
-      config:
-        white: 255
-  flash-chase-strip-6:
-    - feature: rgb
-      fixtures: ["strip6"]
-      config:
-        white: 255
-  flash-chase-strip-7:
-    - feature: rgb
-      fixtures: ["strip7"]
-      config:
-        white: 255
-  flash-chase-strip-8:
-    - feature: rgb
-      fixtures: ["strip8"]
-      config:
-        white: 255
-  flash-chase-w1:
+  flash-chase-boot1:
     - feature: dimmer
-      fixtures: ["w1"]
+      fixtures: ["boot1"]
       config:
         value: 65535
-  flash-chase-w2:
+  flash-chase-boot2:
     - feature: dimmer
-      fixtures: ["w2"]
-      config:
-        value: 65535
-  flash-chase-w3:
-    - feature: dimmer
-      fixtures: ["w3"]
-      config:
-        value: 65535
-  flash-chase-w4:
-    - feature: dimmer
-      fixtures: ["w4"]
+      fixtures: ["boot2"]
       config:
         value: 65535
   flash-chase-wl:
@@ -1078,6 +866,16 @@ cues:
   flash-chase-s4:
     - feature: dimmer
       fixtures: ["s4"]
+      config:
+        value: 65535
+  flash-chase-s5:
+    - feature: dimmer
+      fixtures: ["s5"]
+      config:
+        value: 65535
+  flash-chase-s6:
+    - feature: dimmer
+      fixtures: ["s6"]
       config:
         value: 65535
   flash-chase-mh1:

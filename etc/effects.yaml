@@ -1,26 +1,26 @@
 effects:
-  pulse-intro-1:
+  pulse-wash-outer-boot-1:
     - kind: sine
       config:
         bpm: 120
       modulate:
         - collections:
-            - fixtures: ["w2","w3"]
-            - fixtures: ["w1","w4"]
+            - fixtures: ["wl","wr"]
+            - fixtures: ["boot1","boot2"]
             - {}
           feature: dimmer
           properties: ["value"]
           min: 6000
           max: 18000
           shift: 0.30
-  pulse-intro-2:
+  pulse-wash-outer-boot-2:
     - kind: sine
       config:
         bpm: 120
       modulate:
         - collections:
-            - fixtures: ["w2","w3"]
-            - fixtures: ["w1","w4"]
+            - fixtures: ["wl","wr"]
+            - fixtures: ["boot1","boot2"]
             - {}
             - {}
           feature: dimmer
@@ -34,7 +34,7 @@ effects:
         bpm: 120
       modulate:
         - collections:
-            - groups: ["wash-inner"]
+            - groups: ["wash-boot"]
           feature: dimmer
           properties: ["value"]
           min: 32000
@@ -49,21 +49,11 @@ effects:
           properties: ["value"]
           min: 8000
           max: 36000
-  pulse-strip:
-    - kind: sine
-      config:
-        bpm: 120
-      modulate:
-        - collections:
-            - groups: ["strip"]
-          feature: dimmer
-          properties: ["value"]
-          min: 10000
-          max: 65000
   pos-circles-spread-pan:
     - kind: sine
       config:
-        bpmf: 1
+        #bpmf: 1
+        bpm: 30
       modulate:
         - collections:
             - fixtures: ["mh1"]
@@ -77,27 +67,33 @@ effects:
           shift: 0.5
     - kind: sine
       config:
-        bpmf: 1
+        #bpmf: 1
+        bpm: 30
       modulate:
         - collections:
             - fixtures: ["s1"]
             - fixtures: ["s2"]
             - fixtures: ["s3"]
             - fixtures: ["s4"]
+            - fixtures: ["s5"]
+            - fixtures: ["s6"]
           feature: position
           properties: ["pan"]
           min: 16384
           max: 49152
-          shift: 0.5
+          shift: 0.3
   pos-circles-spread-pan-short:
     - kind: sine
       config:
         bpmf: 1
+        bpm: 30
       modulate:
         - collections:
             - fixtures: ["mh1"]
+            - {}
             - fixtures: ["mh2"]
             - fixtures: ["mh3"]
+            - {}
             - fixtures: ["mh4"]
           feature: position
           properties: ["pan"]
@@ -113,6 +109,8 @@ effects:
             - fixtures: ["s2"]
             - fixtures: ["s3"]
             - fixtures: ["s4"]
+            - fixtures: ["s5"]
+            - fixtures: ["s6"]
           feature: position
           properties: ["pan"]
           min: 24576
@@ -122,11 +120,14 @@ effects:
     - kind: sine
       config:
         bpmf: 2
+        bpm: 30
       modulate:
         - collections:
             - fixtures: ["mh1"]
+            - {}
             - fixtures: ["mh2"]
             - fixtures: ["mh3"]
+            - {}
             - fixtures: ["mh4"]
           feature: position
           properties: ["tilt"]
@@ -136,25 +137,116 @@ effects:
     - kind: sine
       config:
         bpmf: 2
+        bpm: 30
       modulate:
         - collections:
             - fixtures: ["s1"]
             - fixtures: ["s2"]
             - fixtures: ["s3"]
             - fixtures: ["s4"]
+            - fixtures: ["s5"]
+            - fixtures: ["s6"]
           feature: position
           properties: ["tilt"]
           min: 24576
           max: 40960
           shift: 0.5
-  pulse-wash-inner-outer:
+
+  pos-wave:
     - kind: sine
       config:
-        bpm: 120
+        #bpmf: 2
+        bpm: 15
       modulate:
         - collections:
-            - fixtures: ["w2","w3"]
-            - fixtures: ["w1","w4"]
+            - fixtures: ["mh1"]
+            - {}
+            - fixtures: ["mh2"]
+            - {}
+            - {}
+            - {}
+            - {}
+            - fixtures: ["mh3"]
+            - {}
+            - fixtures: ["mh4"]
+          feature: position
+          properties: ["tilt"]
+          min: 0
+          max: 12288
+          shift: 0.1
+    - kind: sine
+      config:
+        #bpmf: 2
+        bpm: 15
+      modulate:
+        - collections:
+            - {}
+            - fixtures: ["s1"]
+            - {}
+            - fixtures: ["s2"]
+            - fixtures: ["s3"]
+            - fixtures: ["s4"]
+            - fixtures: ["s5"]
+            - {}
+            - fixtures: ["s6"]
+            - {}
+          feature: position
+          properties: ["tilt"]
+          min: 32000
+          max: 64000
+          shift: 0.1
+
+  pos-wave-fast:
+    - kind: sine
+      config:
+        #bpmf: 2
+        bpm: 30
+      modulate:
+        - collections:
+            - fixtures: ["mh1"]
+            - {}
+            - fixtures: ["mh2"]
+            - {}
+            - {}
+            - {}
+            - {}
+            - fixtures: ["mh3"]
+            - {}
+            - fixtures: ["mh4"]
+          feature: position
+          properties: ["tilt"]
+          min: 0
+          max: 12288
+          shift: 0.1
+    - kind: sine
+      config:
+        #bpmf: 2
+        bpm: 30
+      modulate:
+        - collections:
+            - {}
+            - fixtures: ["s1"]
+            - {}
+            - fixtures: ["s2"]
+            - fixtures: ["s3"]
+            - fixtures: ["s4"]
+            - fixtures: ["s5"]
+            - {}
+            - fixtures: ["s6"]
+            - {}
+          feature: position
+          properties: ["tilt"]
+          min: 32000
+          max: 64000
+          shift: 0.1
+
+  pulse-wash-boot-outer:
+    - kind: sine
+      config:
+        bpm: 65
+      modulate:
+        - collections:
+            - fixtures: ["boot1","boot2"]
             - {}
           feature: dimmer
           properties: ["value"]
@@ -162,7 +254,6 @@ effects:
           max: 65535
           shift: 0.30
         - collections:
-            - {}
             - {}
             - fixtures: ["wl","wr"]
           feature: dimmer
@@ -173,7 +264,7 @@ effects:
   pulse-scan:
     - kind: sine
       config:
-        bpm: 20
+        bpm: 65
       modulate:
         - collections:
             - groups: ["scan"]
@@ -181,17 +272,7 @@ effects:
           properties: ["value"]
           min: 16000
           max: 65535
-  sweep-strip:
-    - kind: sine
-      config:
-        bpmf: 1
-      modulate:
-        - collections:
-            - fixtures: ["strip"]
-          feature: position
-          properties: ["pan"]
-          min: 16384
-          max: 49152
+
   sweep-ud-staggered:
     - kind: sine
       config:
@@ -199,9 +280,9 @@ effects:
         clip: true
       modulate:
         - collections:
-            - fixtures: ["s1","s4"]
+            - fixtures: ["s1","s6"]
             - {}
-            - fixtures: ["s2","s3"]
+            - fixtures: ["s2","s3","s4","s5"]
             - {}
           feature: dimmer
           properties: ["value"]
@@ -223,9 +304,9 @@ effects:
         bpmf: 1
       modulate:
         - collections:
-            - fixtures: ["s1","s4"]
+            - fixtures: ["s1","s6"]
             - {}
-            - fixtures: ["s2","s3"]
+            - fixtures: ["s2","s3","s4","s5"]
             - {}
           feature: position
           properties: ["tilt"]
@@ -245,7 +326,8 @@ effects:
   sweep-ud-opposite-open:
     - kind: sine
       config:
-        bpmf: 1
+        #bpmf: 1
+        bpm: 30
         clip: true
       modulate:
         - collections:
@@ -262,7 +344,8 @@ effects:
           max: 32000
     - kind: sine
       config:
-        bpmf: 1
+        #bpmf: 1
+        bpm: 30
       modulate:
         - collections:
             - groups: ["scan"]
@@ -274,12 +357,13 @@ effects:
             - groups: ["mh"]
           feature: position
           properties: ["tilt"]
-          min: 0
-          max: 16384
+          min: 8000
+          max: 24384
   sweep-down-alternating:
     - kind: sine
       config:
-        bpmf: 1
+        #bpmf: 1
+        bpm: 30
         clip: true
       modulate:
         - collections:
@@ -300,7 +384,8 @@ effects:
           shift: 0
     - kind: sine
       config:
-        bpmf: 1
+        #bpmf: 1
+        bpm: 30
       modulate:
         - collections:
             - groups: ["scan"]
@@ -363,7 +448,8 @@ effects:
   sweep-up-alternating:
     - kind: sine
       config:
-        bpmf: 1
+        #bpmf: 1
+        bpm: 30
         clip: true
       modulate:
         - collections:
@@ -384,7 +470,8 @@ effects:
           shift: 0.5
     - kind: sine
       config:
-        bpmf: 1
+        #bpmf: 1
+        bpm: 30
       modulate:
         - collections:
             - groups: ["scan"]
@@ -451,40 +538,44 @@ effects:
         clip: true
       modulate:
         - collections:
+            - {}
             - fixtures: ["s1"]
             - {}
             - fixtures: ["s2"]
-            - {}
-            - {}
             - fixtures: ["s3"]
-            - {}
             - fixtures: ["s4"]
+            - fixtures: ["s5"]
+            - {}
+            - fixtures: ["s6"]
+            - {}
           feature: dimmer
           properties: ["value"]
           min: 0
           max: 16000
           shift: 0.2
         - collections:
-            - {}
             - fixtures: ["mh1"]
             - {}
             - fixtures: ["mh2"]
+            - {}
+            - {}
+            - {}
+            - {}
             - fixtures: ["mh3"]
             - {}
             - fixtures: ["mh4"]
-            - {}
           feature: dimmer
           properties: ["value"]
           min: 0
           max: 4000
           shift: 0.2
-  pulse-wash-inner:
+  pulse-wash-boot:
     - kind: sine
       config:
         bpm: 20
       modulate:
         - collections:
-            - groups: ["wash-inner"]
+            - groups: ["wash-boot"]
           feature: dimmer
           properties: ["value"]
           min: 0
@@ -492,7 +583,8 @@ effects:
   pulse-mh:
     - kind: sine
       config:
-        bpmf: 1
+        #bpmf: 1
+        bpn: 65
       modulate:
         - collections:
             - groups: ["mh"]
@@ -500,17 +592,6 @@ effects:
           properties: ["value"]
           min: 8000
           max: 65535
-  pulse-strip-test:
-    - kind: sine
-      config:
-        bpm: 20
-      modulate:
-        - collections:
-            - groups: ["strip"]
-          feature: dimmer
-          properties: ["value"]
-          min: 0
-          max: 16000
   pulse-all-no-scan:
     - kind: sine
       config:
@@ -523,16 +604,10 @@ effects:
           min: 8000
           max: 32767
         - collections:
-            - groups: ["wash-inner"]
+            - groups: ["wash-boot"]
           feature: dimmer
           properties: ["value"]
           min: 12000
-          max: 65535
-        - collections:
-            - groups: ["strip"]
-          feature: dimmer
-          properties: ["value"]
-          min: 8000
           max: 65535
         - collections:
             - groups: ["mh"]
@@ -552,16 +627,10 @@ effects:
           min: 8000
           max: 32767
         - collections:
-            - groups: ["wash-inner"]
+            - groups: ["wash-boot"]
           feature: dimmer
           properties: ["value"]
           min: 12000
-          max: 65535
-        - collections:
-            - groups: ["strip"]
-          feature: dimmer
-          properties: ["value"]
-          min: 8000
           max: 65535
         - collections:
             - groups: ["scan"]
@@ -575,74 +644,6 @@ effects:
           properties: ["value"]
           min: 8000
           max: 65535
-  strip-blue-left-right:
-    - kind: sine
-      config:
-        bpmf: 1
-      modulate:
-        - collections:
-            - fixtures: ["strip1"]
-            - fixtures: ["strip2"]
-            - fixtures: ["strip3"]
-            - fixtures: ["strip4"]
-            - fixtures: ["strip5"]
-            - fixtures: ["strip6"]
-            - fixtures: ["strip7"]
-            - fixtures: ["strip8"]
-          feature: rgb
-          properties: ["blue"]
-          min: 0
-          max: 255
-          shift: 0.125
-  strip-blue-right-left:
-    - kind: sine
-      config:
-        bpmf: 1
-      modulate:
-        - collections:
-            - fixtures: ["strip8"]
-            - fixtures: ["strip7"]
-            - fixtures: ["strip6"]
-            - fixtures: ["strip5"]
-            - fixtures: ["strip4"]
-            - fixtures: ["strip3"]
-            - fixtures: ["strip2"]
-            - fixtures: ["strip1"]
-          feature: rgb
-          properties: ["blue"]
-          min: 0
-          max: 255
-          shift: 0.125
-  strip-blue-in-out:
-    - kind: sine
-      config:
-        bpmf: 1
-      modulate:
-        - collections:
-            - fixtures: ["strip4","strip5"]
-            - fixtures: ["strip3","strip6"]
-            - fixtures: ["strip2","strip7"]
-            - fixtures: ["strip1","strip8"]
-          feature: rgb
-          properties: ["blue"]
-          min: 0
-          max: 255
-          shift: 0.25
-  strip-blue-out-in:
-    - kind: sine
-      config:
-        bpmf: 1
-      modulate:
-        - collections:
-            - fixtures: ["strip1","strip8"]
-            - fixtures: ["strip2","strip7"]
-            - fixtures: ["strip3","strip6"]
-            - fixtures: ["strip4","strip5"]
-          feature: rgb
-          properties: ["blue"]
-          min: 0
-          max: 255
-          shift: 0.25
   pos-mh-wave-left-right:
     - kind: sine
       config:

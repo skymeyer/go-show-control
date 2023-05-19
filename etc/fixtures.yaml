@@ -1,6 +1,77 @@
 virtual:
   manufacturer: Built-in
   model: Virtual device
+ConfettiCannon:
+  manufacturer: Unknown
+  model: 4 shot
+  modes:
+    4ch:
+      features:
+        shoot:
+          kind: cannon
+          spec:
+            cannon1:
+              channel: cannon1
+              standby: standby
+              launch: launch
+            cannon2:
+              channel: cannon2
+              standby: standby
+              launch: launch
+            cannon3:
+              channel: cannon3
+              standby: standby
+              launch: launch
+            cannon4:
+              channel: cannon4
+              standby: standby
+              launch: launch
+      dmx:
+        cannon1:
+          channel: 1
+          description: Cannon 1
+          default: 0
+          attributes:
+            standby:
+              min: 0
+              max: 0
+            launch:
+              min: 255
+              max: 255
+        cannon2:
+          channel: 2
+          description: Cannon 2
+          default: 0
+          attributes:
+            standby:
+              min: 0
+              max: 0
+            launch:
+              min: 255
+              max: 255
+        cannon3:
+          channel: 3
+          description: Cannon 3
+          default: 0
+          attributes:
+            standby:
+              min: 0
+              max: 0
+            launch:
+              min: 255
+              max: 255
+        cannon4:
+          channel: 4
+          description: Cannon 4
+          default: 0
+          attributes:
+            standby:
+              min: 0
+              max: 0
+            launch:
+              min: 255
+              max: 255
+
 GruolinRGBFullColor:
   manufacturer: Gruolin
   model: RGB Full Color Laser

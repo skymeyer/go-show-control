@@ -1,888 +1,1518 @@
 sequences:
-  calibrate:
-    manual: 1
-    steps:
-      - cues: ["calibrate"]
-        duration: 1m
   warmup:
-    manual: 2
+    page: 1
+    button: 64
+    type: scene
     steps:
       - cues: ["warmup"]
-        duration: 1h
-  init:
+        duration: 8h
+
+  #calibrate:
+  #  page: 1
+  #  button: 64
+  #  type: scene
+  #  steps:
+  #    - cues: ["calibrate"]
+  #      duration: 8h
+
+###
+
+  scene-loop-1:
+    page: 1
+    button: 15
+    type: scene
+    loop: true
     steps:
-      - cues: ["pos-intro-start"]
-        duration: 5m
-  intro-color:
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 20s
+      - cues: ["col-red"]
+        duration: 20s
+      - cues: ["col-red-white"]
+        duration: 20s
+      - cues: ["col-green"]
+        duration: 20s
+      - cues: ["col-blue"]
+        duration: 20s
+      - cues: ["col-blue-white"]
+        duration: 20s
+      - cues: ["col-red-green-1"]
+        duration: 20s
+      - cues: ["col-magenta"]
+        duration: 20s
+      - cues: ["col-magenta-cyan"]
+        duration: 20s
+      - cues: ["col-red-orange-yellow"]
+        duration: 20s
+      - cues: ["col-blue-white-1"]
+        duration: 20s
+      - cues: ["col-red-green-2"]
+        duration: 20s
+      - cues: ["col-red-orange-white"]
+        duration: 20s
+      - cues: ["col-blue-white-2"]
+        duration: 8h
+
+  scene-red:
+    page: 1
+    button: 1
+    type: scene
     steps:
-      - cues: ["col-intro-1","pos-intro-start"]
-        fxs: ["pulse-intro-1"]
-        duration: 5m
-  intro-pulse:
+      - cues: ["col-red"]
+        duration: 8h
+
+  scene-red-white:
+    page: 1
+    button: 2
+    type: scene
     steps:
-      - cues: ["dim-intro-2","pos-intro-start"]
-        track: true
-      - cues: ["strobe-scan-160"]
-        duration: 5s
-      - cues: ["strobe-scan-180"]
+      - cues: ["col-red-white"]
+        duration: 8h
+
+  scene-green:
+    page: 1
+    button: 3
+    type: scene
+    steps:
+      - cues: ["col-green"]
+        duration: 8h
+
+  scene-blue:
+    page: 1
+    button: 4
+    type: scene
+    steps:
+      - cues: ["col-blue"]
+        duration: 8h
+
+  scene-blue-white:
+    page: 1
+    button: 5
+    type: scene
+    steps:
+      - cues: ["col-blue-white"]
+        duration: 8h
+
+  scene-magenta:
+    page: 1
+    button: 6
+    type: scene
+    steps:
+      - cues: ["col-magenta"]
+        duration: 8h
+
+  scene-magenta-cyan:
+    page: 1
+    button: 7
+    type: scene
+    steps:
+      - cues: ["col-magenta-cyan"]
+        duration: 8h
+
+  scene-red-orange-yellow:
+    page: 1
+    button: 8
+    type: scene
+    steps:
+      - cues: ["col-red-orange-yellow"]
+        duration: 8h
+
+  scene-red-orange-white:
+    page: 1
+    button: 9
+    type: scene
+    steps:
+      - cues: ["col-red-orange-white"]
+        duration: 8h
+
+  scene-red-green-1:
+    page: 1
+    button: 10
+    type: scene
+    steps:
+      - cues: ["col-red-green-1"]
+        duration: 8h
+
+  scene-red-green-2:
+    page: 1
+    button: 11
+    type: scene
+    steps:
+      - cues: ["col-red-green-2"]
+        duration: 8h
+
+  scene-blue-white-1:
+    page: 1
+    button: 12
+    type: scene
+    steps:
+      - cues: ["col-blue-white-1"]
+        duration: 8h
+
+  scene-blue-white-2:
+    page: 1
+    button: 13
+    type: scene
+    steps:
+      - cues: ["col-blue-white-2"]
+        duration: 8h
+
+  scene-white:
+    page: 1
+    button: 16
+    type: scene
+    steps:
+      - cues: ["col-white"]
+        duration: 8h
+
+  pos-default:
+    page: 1
+    button: 49
+    type: pos
+    loop: true
+    steps:
+      - cues: ["pos-default"]
+        duration: 8h
+
+  pos-loop-1:
+    page: 1
+    button: 56
+    type: pos
+    loop: true
+    steps:
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave-fast"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-wave"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-up-alternating"]
+        duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 20s
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave-fast","pos-circles-spread-pan-short"]
+      #  duration: 20s
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 8h
+      #- cues: ["pos-default"]
+      #  fxs: ["pos-wave","pos-circles-spread-pan-short"]
+      #  duration: 20s
+
+  pos-circles-spread-pan:
+    page: 1
+    button: 50
+    type: pos
+    loop: true
+    steps:
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan"]
+        duration: 8h
+
+  pos-circles-spread-pan-short:
+    page: 1
+    button: 51
+    type: pos
+    loop: true
+    steps:
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-pan-short"]
+        duration: 8h
+
+  pos-circles-spread-tilt:
+    page: 1
+    button: 52
+    type: pos
+    loop: true
+    steps:
+      - cues: ["pos-default"]
+        fxs: ["pos-circles-spread-tilt"]
+        duration: 8h
+
+  sweep-ud-opposite-open:
+    page: 1
+    button: 53
+    type: pos
+    loop: true
+    steps:
+      - cues: ["pos-default"]
+        fxs: ["sweep-ud-opposite-open"]
+        duration: 8h
+
+  sweep-down-alternating:
+    page: 1
+    button: 54
+    type: pos
+    loop: true
+    steps:
+      - cues: ["pos-default"]
+        fxs: ["sweep-down-alternating"]
+        duration: 8h
+
+  #sweep-up-alternating:
+  #  page: 1
+  #  button: 55
+  #  type: pos
+  #  loop: true
+  #  steps:
+  #    - cues: ["pos-default"]
+  #      fxs: ["sweep-up-alternating"]
+  #      duration: 8h
+
+  pos-test:
+    page: 1
+    button: 55
+    type: pos
+    loop: true
+    steps:
+      - cues: ["pos-default"]
+        fxs: ["pos-wave","pos-circles-spread-pan-short"]
+        duration: 8h
+
+  dim-default:
+    page: 1
+    button: 57
+    type: dim
+    loop: true
+    steps:
+      - cues: ["dim-default"]
+        duration: 8h
+
+  dim-wash-mh:
+    page: 1
+    button: 58
+    type: dim
+    loop: true
+    steps:
+      - cues: ["dim-wash-mh"]
+        duration: 8h
+
+  dim-wash-scan:
+    page: 1
+    button: 59
+    type: dim
+    loop: true
+    steps:
+      - cues: ["dim-wash-scan"]
+        duration: 8h
+
+  pulse-wash-boot-outer:
+    page: 1
+    button: 60
+    type: dimfx
+    loop: true
+    steps:
+      - fxs: ["pulse-wash-boot-outer"]
+        duration: 8h
+
+  pulse-scan:
+    page: 1
+    button: 61
+    type: dimfx
+    loop: true
+    steps:
+      - fxs: ["pulse-scan"]
+        duration: 8h
+
+
+  laser-rgb-green:
+    page: 1
+    button: 25
+    type: dimfx
+    loop: true
+    steps:
+      - cues: ["laser-rgb-green-liquid"]
+        duration: 8h
+
+  laser-rgb-blue:
+    page: 1
+    button: 26
+    type: dimfx
+    loop: true
+    steps:
+      - cues: ["laser-rgb-blue-liquid"]
+        duration: 8h
+
+  laser-all-1:
+    page: 1
+    button: 27
+    type: dimfx
+    loop: true
+    steps:
+      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
+        duration: 8h
+
+  laser-all-2:
+    page: 1
+    button: 28
+    type: dimfx
+    loop: true
+    steps:
+      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
+        duration: 8h
+
+  laser-cycle:
+    page: 1
+    button: 33
+    type: dimfx
+    loop: true
+    steps:
+      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
+        duration: 15s
+      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-circle"]
+        duration: 15s
+      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
+        duration: 8h
+
+  strobe:
+    page: 1
+    button: 32
+    type: dimfx
+    loop: true
+    steps:
+      - cues: ["strobe-scan-255", "strobe-mh-255", "strobe-wash-outer-255"]
+        duration: 8h
+
+  shoot1:
+    page: 1
+    button: 37
+    type: dimfx
+    loop: false
+    steps:
+      - cues: ["shoot1"]
         duration: 10s
-      - cues: ["strobe-scan-220"]
+
+  shoot2:
+    page: 1
+    button: 38
+    type: dimfx
+    loop: false
+    steps:
+      - cues: ["shoot2"]
         duration: 10s
-      - cues: ["strobe-scan-255"]
-        duration: 4s800ms
-      - cues: ["dim-intro-3"]
-        duration: 1m
-        untrack: true
-  intro-welcome:
-    steps:
-      - cues: ["col-intro-2","dim-intro-4","pos-intro-start"]
-        track: true
-      - cues:
-          - dim-chase-wr
-          - dim-chase-uv-moonr
-          - dim-chase-w4
-          - dim-chase-w3
-          - dim-chase-w2
-          - dim-chase-w1
-          - dim-chase-uv-moonl
-          - dim-chase-wl
-        duration: 25ms
-      - cues:
-          - dim-chase-uv-moonr
-          - dim-chase-w4
-          - dim-chase-w3
-          - dim-chase-w2
-          - dim-chase-w1
-          - dim-chase-uv-moonl
-          - dim-chase-wl
-        duration: 25ms
-      - cues:
-          - dim-chase-w3
-          - dim-chase-w2
-          - dim-chase-w1
-          - dim-chase-uv-moonl
-          - dim-chase-wl
-        duration: 25ms
-      - cues:
-          - dim-chase-w2
-          - dim-chase-w1
-          - dim-chase-uv-moonl
-          - dim-chase-wl
-        duration: 25ms
-      - cues:
-          - dim-chase-w1
-          - dim-chase-uv-moonl
-          - dim-chase-wl
-        duration: 25ms
-      - cues:
-          - dim-chase-uv-moonl
-          - dim-chase-wl
-        duration: 25ms
-      - cues:
-          - dim-chase-wl
-        duration: 25ms
-      - fxs: ["pulse-intro-2"]
-        duration: 9s450ms
-        track: true
-      - cues:
-          - flash-chase-s1
-          - flash-chase-s2
-          - flash-chase-s3
-          - flash-chase-s4
-          - flash-chase-mh1
-          - flash-chase-mh2
-          - flash-chase-mh3
-          - flash-chase-mh4
-        duration: 150ms
-      - cues: ["col-intro-3","dim-intro-4","pos-intro-start"]
-        fxs: ["pulse-intro-2"]
-        untrack: true
-        duration: 19s
-      - cues:
-          - flash-chase-s1
-          - flash-chase-s2
-          - flash-chase-s3
-          - flash-chase-s4
-          - flash-chase-mh1
-          - flash-chase-mh2
-          - flash-chase-mh3
-          - flash-chase-mh4
-        duration: 150ms
-      - cues: ["col-intro-2","dim-intro-4","pos-intro-crystal-cross"]
-        fxs: ["pulse-intro-2"]
-        untrack: true
-        duration: 5m
 
-  intro-crystal-beams:
+  shoot3:
+    page: 1
+    button: 39
+    type: dimfx
+    loop: false
     steps:
-      - cues: ["col-intro-2","pos-intro-crystal-cross"]
-        fxs: ["pulse-intro-2"]
-        track: true
-      - cues: ["dim-intro-5"]
-        duration: 900ms
-        track: true
-      - cues: ["col-intro-4"]
-        duration: 5s
-        track: true
-      - cues: ["col-intro-5","dim-intro-6"] # off
-        duration: 1s
-        track: true
-      - cues: ["dim-intro-7"] # on
-        duration: 1s
-        track: true
-      - cues: ["dim-intro-6"] # off
-        duration: 1m
+      - cues: ["shoot3"]
+        duration: 10s
 
-  intro-crystal-chase-flash:
+  shoot4:
+    page: 1
+    button: 40
+    type: dimfx
+    loop: false
     steps:
-      - cues:
-          - flash-chase-strip-4
-          - flash-chase-strip-5
-        track: true
-        duration: 120ms
-      - cues:
-          - flash-chase-strip-3
-          - flash-chase-strip-6
-        track: true
-        duration: 120ms
-      - cues:
-          - flash-chase-strip-2
-          - flash-chase-strip-7
-        track: true
-        duration: 120ms
-      - cues:
-          - flash-chase-strip-1
-          - flash-chase-strip-8
-        track: true
-        duration: 120ms
-      - cues:
-          - flash-chase-mh2
-          - flash-chase-mh3
-        track: true
-        duration: 120ms
-      - cues:
-          - flash-chase-s2
-          - flash-chase-s3
-        track: true
-        duration: 120ms
-      - cues:
-          - flash-chase-mh1
-          - flash-chase-mh4
-        track: true
-        duration: 120ms
-      - cues:
-          - flash-chase-s1
-          - flash-chase-s4
-        track: true
-        duration: 120ms
+      - cues: ["shoot4"]
+        duration: 10s
 
-  intro-crystal-chase-dim:
-    steps:
-      - cues:
-          - dim-chase-strip-4
-          - dim-chase-strip-5
-        track: true
-        duration: 120ms
-      - cues:
-          - dim-chase-strip-3
-          - dim-chase-strip-6
-        track: true
-        duration: 120ms
-      - cues:
-          - dim-chase-strip-2
-          - dim-chase-strip-7
-        track: true
-        duration: 120ms
-      - cues:
-          - dim-chase-strip-1
-          - dim-chase-strip-8
-        track: true
-        duration: 120ms
-      - cues:
-          - dim-chase-mh2
-          - dim-chase-mh3
-        track: true
-        duration: 120ms
-      - cues:
-          - dim-chase-s2
-          - dim-chase-s3
-        track: true
-        duration: 120ms
-      - cues:
-          - dim-chase-mh1
-          - dim-chase-mh4
-        track: true
-        duration: 120ms
-      - cues:
-          - dim-chase-s1
-          - dim-chase-s4
-        track: true
-        duration: 120ms
-
-  intro-hold:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta
-          - default-scene
-          - dim-chase-strip
-        fxs:
-          - pulse-wash-inner
-          - pulse-mh
-        duration: 1m
-
-####
-  s1-intro-scene:
-    steps:
-      - cues:
-          - pos-default
-          - s1-intro-scene
-          - col-blue-white
-        fxs:
-          - pulse-wash
-        duration: 1m
-  s1-intro-beams-1:
-    steps:
-      - cues:
-          - flash-chase-s1
-          - flash-chase-s4
-        duration: 600ms
-      - cues:
-          - flash-chase-mh1
-          - flash-chase-mh4
-        duration: 600ms
-      - cues:
-          - flash-chase-s2
-          - flash-chase-s3
-        duration: 600ms
-      - cues:
-          - flash-chase-mh2
-          - flash-chase-mh3
-        duration: 600ms
-  s1-intro-beams-2:
-    steps:
-      - cues:
-          - flash-chase-s1
-          - flash-chase-s4
-        duration: 450ms
-      - cues:
-          - flash-chase-mh1
-          - flash-chase-mh4
-        duration: 450ms
-      - cues:
-          - flash-chase-s2
-          - flash-chase-s3
-        duration: 450ms
-      - cues:
-          - flash-chase-mh2
-          - flash-chase-mh3
-        duration: 450ms
-  s1-intro-beams-3:
-    steps:
-      - cues:
-          - flash-chase-s1
-          - flash-chase-s4
-        duration: 350ms
-      - cues:
-          - flash-chase-mh1
-          - flash-chase-mh4
-        duration: 350ms
-      - cues:
-          - flash-chase-s2
-          - flash-chase-s3
-        duration: 350ms
-      - cues:
-          - flash-chase-mh2
-          - flash-chase-mh3
-        duration: 350ms
-  s1-intro-beams-4:
-    steps:
-      - cues:
-          - flash-chase-s1
-          - flash-chase-s4
-        duration: 300ms
-      - cues:
-          - flash-chase-mh1
-          - flash-chase-mh4
-        duration: 300ms
-      - cues:
-          - flash-chase-s2
-          - flash-chase-s3
-        duration: 300ms
-      - cues:
-          - flash-chase-mh2
-          - flash-chase-mh3
-        duration: 300ms
-  s1-intro-beams-5:
-    steps:
-      - cues:
-          - flash-chase-s1
-          - flash-chase-s4
-          - flash-chase-strip-1
-          - flash-chase-strip-8
-        duration: 200ms
-      - cues:
-          - flash-chase-mh1
-          - flash-chase-mh4
-          - flash-chase-strip-2
-          - flash-chase-strip-7
-        duration: 200ms
-      - cues:
-          - flash-chase-s2
-          - flash-chase-s3
-          - flash-chase-strip-3
-          - flash-chase-strip-6
-        duration: 200ms
-      - cues:
-          - flash-chase-mh2
-          - flash-chase-mh3
-          - flash-chase-strip-4
-          - flash-chase-strip-5
-        duration: 200ms
-  s1-intro-beams-6:
-    steps:
-      - cues:
-          - strobe-wash-inner-180
-          - strobe-wash-outer-240
-        track: true
-      - cues:
-          - flash-chase-s1
-          - flash-chase-s4
-          - flash-chase-strip-1
-          - flash-chase-strip-8
-        duration: 150ms
-      - cues:
-          - flash-chase-mh1
-          - flash-chase-mh4
-          - flash-chase-strip-2
-          - flash-chase-strip-7
-        duration: 150ms
-      - cues:
-          - flash-chase-s2
-          - flash-chase-s3
-          - flash-chase-strip-3
-          - flash-chase-strip-6
-        duration: 150ms
-      - cues:
-          - flash-chase-mh2
-          - flash-chase-mh3
-          - flash-chase-strip-4
-          - flash-chase-strip-5
-        duration: 150ms
-  s1-intro-beams-7:
-    steps:
-      - cues:
-          - strobe-scan-255
-          - strobe-mh-255
-          - strobe-strip-255
-          - strobe-wash-255
-        track: true
-      - cues:
-          - flash-chase-s1
-          - flash-chase-s4
-          - flash-chase-strip-1
-          - flash-chase-strip-8
-        duration: 200ms
-      - cues:
-          - flash-chase-mh1
-          - flash-chase-mh4
-          - flash-chase-strip-2
-          - flash-chase-strip-7
-        duration: 200ms
-      - cues:
-          - flash-chase-s2
-          - flash-chase-s3
-          - flash-chase-strip-3
-          - flash-chase-strip-6
-        duration: 200ms
-      - cues:
-          - flash-chase-mh2
-          - flash-chase-mh3
-          - flash-chase-strip-4
-          - flash-chase-strip-5
-        duration: 200ms
-###
-
-  s1-s1-init:
-    steps:
-      - cues:
-          - s1-s1-init
-          - col-red-white
-          - dim-chase-strip
-          - dim-chase-mh
-          - dim-chase-wash
-          - dim-chase-scan
-        fxs: ["pos-circles-spread-pan","pos-circles-spread-tilt"]
-        duration: 1m
-
-  s1-s1-scene-1:
-    steps:
-      - cues:
-          - pos-default
-          - s1-s1-init
-          - col-red-white
-          - s1-s1-scene
-        fxs:
-          - pulse-wash
-        duration: 1m
-
-  s1-s1-pos-1:
-    steps:
-      - fxs:
-          - pos-circles-spread-pan
-          - pos-circles-spread-tilt
-          - sweep-strip
-        duration: 1m
-
-  s1-s1-scene-2:
-    steps:
-      - cues:
-          - pos-default
-          - s1-s1-init
-          - col-red-white
-          - s1-s1-scene
-          - strobe-scan-pulse-220
-          - strobe-mh-160
-        fxs:
-          - pulse-wash
-          - pulse-strip
-        duration: 1m
-
-  s1-s1-scene-3:
-    steps:
-      - cues:
-          - pos-default
-          - s1-s1-init
-          - col-red-white
-          - s1-s1-scene
-          - strobe-scan-pulse-255
-          - strobe-mh-220
-          - dim-chase-mh
-          - dim-chase-scan
-        fxs:
-          - pulse-wash-inner-outer
-          - pulse-strip
-        duration: 1m
-
-  s1-s1-scene-4:
-    steps:
-      - cues:
-          - pos-default
-          - s1-s1-init
-          - col-red-white
-          - s1-s1-scene
-          - strobe-scan-255
-          - strobe-mh-255
-        fxs:
-          - pulse-wash
-          - pulse-strip
-        duration: 1m
-
-  s1-s1-scene-5:
-    steps:
-      - cues:
-          - pos-default
-          - s1-s1-init
-          - col-red-white
-          - s1-s1-scene
-        fxs:
-          - pulse-wash
-          - pos-circles-spread-pan
-          - pos-circles-spread-tilt
-          - sweep-strip
-        duration: 1m
-
-###
-
-  s1-s2-scene-1:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta-cyan
-          - s1-s2-scene
-          - dim-chase-mh
-          - dim-chase-scan
-          - dim-chase-strip
-        fxs:
-          - pulse-wash-inner-outer
-        duration: 1m
-
-  s1-s2-scene-2:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta-cyan
-          - s1-s2-scene
-          - dim-chase-mh
-          - dim-chase-scan
-          - dim-chase-strip
-          - dim-chase-wash-outer
-        duration: 1m
-
-  s1-s2-scene-3:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta-cyan
-          - s1-s2-scene
-          - dim-chase-mh
-          - dim-chase-scan
-          - dim-chase-strip
-          - strobe-mh-220
-          - strobe-scan-220
-          - dim-chase-wash-outer
-        fxs:
-          - pulse-wash-inner
-          - sweep-up-alternating
-        duration: 1m
-
-  s1-s2-scene-4:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta-cyan
-          - s1-s2-scene
-          - dim-chase-strip
-          - dim-chase-wash-outer
-          - strobe-mh-220
-          - strobe-scan-220
-        duration: 1m
-
-  s1-s2-scene-5:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta-cyan
-          - s1-s2-scene
-          - strobe-mh-160
-          - strobe-scan-220
-        fxs:
-          - pulse-wash-inner-outer
-          - sweep-strip
-        duration: 1m
-
-  s1-s2-scene-6:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta-cyan
-          - s1-s2-scene
-          - dim-chase-strip
-        fxs:
-          - pulse-wash-inner-outer
-          - sweep-up-alternating
-        duration: 1m
-
-  s1-s2-scene-7:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta-cyan
-          - s1-s2-scene
-          - strobe-mh-160
-          - strobe-scan-220
-        fxs:
-          - pulse-wash-inner-outer
-          - sweep-strip
-          - sweep-up-alternating
-        duration: 1m
-
-###
-
-  s1-s3-pos-1:
-    steps:
-      - fxs:
-          - pos-circles-spread-pan-short
-          - pos-circles-spread-tilt
-        duration: 1m
-
-  s1-s3-flash:
-    steps:
-      - cues:
-          - flash-chase-s1
-          - flash-chase-s2
-          - flash-chase-s3
-          - flash-chase-s4
-        duration: 200ms
-      - cues: []
-        duration: 250ms
-      - cues:
-          - flash-chase-s1
-          - flash-chase-s2
-          - flash-chase-s3
-          - flash-chase-s4
-        duration: 250ms
-
-  s1-s3-scene-1:
-    steps:
-      - cues:
-          - pos-default
-          - col-red-orange-white
-          - s1-s3-scene
-          - dim-chase-mh
-          - dim-chase-scan
-          - dim-chase-strip
-        duration: 1m
-
-  s1-s3-scene-2:
-    steps:
-      - cues:
-          - pos-default
-          - col-red-orange-white
-          - s1-s3-scene
-          - dim-chase-scan
-        fxs:
-          - pulse-all-no-scan
-        duration: 1m
-
-  s1-s3-scene-3:
-    steps:
-      - cues:
-          - pos-default
-          - col-red-orange-white
-          - s1-s3-scene
-        fxs:
-          - pulse-wash-inner-outer
-        duration: 1m
-
-  s1-s3-scene-4:
-    steps:
-      - cues:
-          - pos-default
-          - col-red-orange-white
-          - s1-s3-scene
-          - strobe-mh-180
-          - strobe-scan-220
-        fxs:
-          - pulse-wash-inner-outer
-        duration: 1m
-
-  s1-s3-scene-5:
-    steps:
-      - cues:
-          - pos-default
-          - col-red-orange-white
-          - s1-s3-scene
-          - strobe-mh-255
-          - strobe-scan-255
-          - strobe-strip-255
-        fxs:
-          - pulse-wash-inner-outer
-        duration: 1m
-
-  s1-s3-scene-6:
-    steps:
-      - cues:
-          - pos-default
-          - col-red-orange-white
-          - s1-s3-scene
-          - strobe-mh-255
-          - strobe-scan-255
-          - strobe-strip-255
-          - flash-chase-white-moonl
-          - flash-chase-white-moonr
-          - strobe-moon-white
-        fxs:
-          - pulse-wash-inner-outer
-        duration: 1m
-
-  s1-s3-scene-7:
-    steps:
-      - cues:
-          - pos-default
-          - col-red-orange-white
-          - s1-s3-scene
-        fxs:
-          - pulse-wash-inner-outer
-          - sweep-ud-staggered
-          - sweep-strip
-        duration: 1m
-
-###
-
-  s1-s4-scene-1:
-    steps:
-      - cues:
-          - pos-default
-          - col-blue-white
-          - s1-s4-scene
-          - dim-chase-mh
-          - dim-chase-scan
-          - dim-chase-strip
-        duration: 1m
-
-  s1-s4-scene-2:
-    steps:
-      - cues:
-          - pos-default
-          - col-blue-white
-          - s1-s4-scene
-          - dim-chase-scan
-          - dim-chase-strip
-        fxs:
-          - pulse-wash-inner-outer
-          - pulse-mh
-        duration: 1m
-
-  s1-s4-scene-3:
-    steps:
-      - cues:
-          - pos-default
-          - col-blue-white
-          - s1-s4-scene
-          - dim-chase-mh
-          - dim-chase-scan
-          - dim-chase-strip
-          - laser-rgb-blue-liquid
-        fxs:
-          - pulse-wash-inner-outer
-        duration: 1m
-
-  s1-s4-scene-4:
-    steps:
-      - cues:
-          - pos-default
-          - col-blue-white
-          - s1-s4-scene
-          - dim-chase-mh
-          - dim-chase-scan
-          - dim-chase-strip
-          - laser-rgb-blue-liquid
-          - laser-circle
-        fxs:
-          - pulse-wash-inner-outer
-        duration: 1m
-
-  s1-s4-scene-5:
-    steps:
-      - cues:
-          - pos-default
-          - col-blue-white
-          - s1-s4-scene
-          - dim-chase-strip
-        fxs:
-          - pulse-wash-inner-outer
-          - pulse-mh
-          - sweep-ud-staggered
-        duration: 1m
-
-###
-
-  s1-s5-scene-1:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta-cyan
-          - default-scene
-        fxs:
-          - pulse-wash-inner-outer
-          - pulse-strip
-          - sweep-ud-opposite-open
-        duration: 1m
-
-###
-
-  s1-s6-scene-1:
-    steps:
-      - cues:
-          - pos-default
-          - col-red
-          - default-scene
-        fxs:
-          - pulse-wash-inner-outer
-          - pulse-strip
-          - pos-circles-spread-pan-short
-          - pos-circles-spread-tilt
-        duration: 1m
-
-  s1-s6-scene-2:
-    steps:
-      - cues:
-          - pos-default
-          - col-red-white
-          - default-scene
-        fxs:
-          - pulse-all
-          - pos-circles-spread-pan-short
-          - pos-circles-spread-tilt
-        duration: 1m
-
-###
-
-  s1-s7-scene-1:
-    steps:
-      - cues:
-          - pos-default
-          - col-red-orange-yellow
-          - default-scene
-        fxs:
-          - pulse-wash-inner-outer
-          - pulse-strip
-          - pulse-mh
-        duration: 1m
-
-  s1-s7-scene-2:
-    steps:
-      - cues:
-          - pos-default
-          - col-red-orange-yellow
-          - default-scene
-        fxs:
-          - pulse-wash-inner-outer
-          - pulse-strip
-          - sweep-strip
-          - sweep-down-synced
-        duration: 1m
-
-###
-
-  s1-s8-scene-1:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta
-          - default-scene
-        fxs:
-          - pulse-all
-          - pos-circles-spread-pan-short
-        duration: 1m
-
-  s1-s8-scene-2:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta
-          - default-scene
-          - laser-rgb-blue-liquid
-          - dim-mh
-          - dim-strip
-        fxs:
-          - pulse-wash
-          - pos-circles-spread-pan-short
-        duration: 1m
-
-  s1-s8-scene-3:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta
-          - default-scene
-          - laser-rgb-blue-liquid
-        fxs:
-          - pulse-wash-inner-outer
-          - pulse-strip
-          - pulse-mh
-        duration: 1m
-
-###
-
-  s1-s9-scene-1:
-    steps:
-      - cues:
-          - pos-default
-          - col-magenta
-          - default-scene
-        fxs:
-          - pulse-all
-          - pos-circles-spread-pan-short
-        duration: 1m
+#  intro-color:
+#    steps:
+#      - cues: ["col-intro-1","pos-intro-start"]
+#        fxs: ["pulse-intro-1"]
+#        duration: 5m
+#  intro-pulse:
+#    steps:
+#      - cues: ["dim-intro-2","pos-intro-start"]
+#        track: true
+#      - cues: ["strobe-scan-160"]
+#        duration: 5s
+#      - cues: ["strobe-scan-180"]
+#        duration: 10s
+#      - cues: ["strobe-scan-220"]
+#        duration: 10s
+#      - cues: ["strobe-scan-255"]
+#        duration: 4s800ms
+#      - cues: ["dim-intro-3"]
+#        duration: 1m
+#        untrack: true

@@ -10,6 +10,11 @@ universes:
       device: dmx1
       universe: 0
 fixtures:
+  cannon:
+    kind: ConfettiCannon
+    universe: default
+    mode: 4ch
+    address: 509
   moonl:
     kind: LaluceNatzDerby
     universe: default
@@ -45,31 +50,21 @@ fixtures:
     universe: default
     mode: 7ch
     address: 29
-  w1:
-    kind: UKing-RGB-36
-    universe: default
-    mode: 7ch
-    address: 182
-  w2:
-    kind: UKing-RGB-36
-    universe: default
-    mode: 7ch
-    address: 175
-  w3:
-    kind: UKing-RGB-36
-    universe: default
-    mode: 7ch
-    address: 189
-  w4:
+  boot1:
     kind: UKing-RGB-36
     universe: default
     mode: 7ch
     address: 196
+  boot2:
+    kind: UKing-RGB-36
+    universe: default
+    mode: 7ch
+    address: 189
   mh1:
     kind: XPCLEOYZ-60w-90w-mini-led-spot
     universe: default
     mode: 11ch
-    address: 61
+    address: 83
   mh2:
     kind: XPCLEOYZ-60w-90w-mini-led-spot
     universe: default
@@ -79,7 +74,7 @@ fixtures:
     kind: XPCLEOYZ-60w-90w-mini-led-spot
     universe: default
     mode: 11ch
-    address: 83
+    address: 61
   mh4:
     kind: XPCLEOYZ-60w-90w-mini-led-spot
     universe: default
@@ -89,7 +84,7 @@ fixtures:
     kind: Chauvet-Intimidator-Scan-110
     universe: default
     mode: 11ch
-    address: 36
+    address: 47
   s2:
     kind: Chauvet-Intimidator-Scan-110
     universe: default
@@ -99,57 +94,22 @@ fixtures:
     kind: Chauvet-Intimidator-Scan-110
     universe: default
     mode: 11ch
-    address: 164
+    address: 203
   s4:
     kind: Chauvet-Intimidator-Scan-110
     universe: default
     mode: 11ch
-    address: 47
-  strip:
-    kind: RockvilleMotionStrip
+    address: 36
+  s5:
+    kind: Chauvet-Intimidator-Scan-110
     universe: default
-    mode: 38ch
-    address: 105
-  strip1:
-    kind: virtual
-    real: strip
-    map:
-      rgb8: rgb
-  strip2:
-    kind: virtual
-    real: strip
-    map:
-      rgb7: rgb
-  strip3:
-    kind: virtual
-    real: strip
-    map:
-      rgb6: rgb
-  strip4:
-    kind: virtual
-    real: strip
-    map:
-      rgb5: rgb
-  strip5:
-    kind: virtual
-    real: strip
-    map:
-      rgb4: rgb
-  strip6:
-    kind: virtual
-    real: strip
-    map:
-      rgb3: rgb
-  strip7:
-    kind: virtual
-    real: strip
-    map:
-      rgb2: rgb
-  strip8:
-    kind: virtual
-    real: strip
-    map:
-      rgb1: rgb
+    mode: 11ch
+    address: 164
+  s6:
+    kind: Chauvet-Intimidator-Scan-110
+    universe: default
+    mode: 11ch
+    address: 213
 groups:
   moon:
     members: ["moonl", "moonr"]
@@ -157,30 +117,24 @@ groups:
     members: ["laser"]
   laser-rgb:
     members: ["laser-rgb-1"]
-  strip:
-    members: ["strip"]
-  stripheads:
-    members: ["strip1","strip2","strip3","strip4","strip5","strip6","strip7","strip8"]
   wash:
-    members: ["wl", "w1", "w2", "w3", "w4", "wr"]
+    members: ["wl", "wr", "boot1", "boot2"]
   wash-outer:
     members: ["wl", "wr"]
-  wash-inner:
-    members: ["w1", "w2", "w3", "w4"]
-  wash-inner-left:
-    members: ["w1", "w2"]
-  wash-inner-right:
-    members: ["w3", "w4"]
+  wash-boot:
+    members: ["boot1", "boot2"]
   scan:
-    members: ["s1", "s2", "s3", "s4"]
+    members: ["s1", "s2", "s3", "s4", "s5", "s6"]
   scan-left:
-    members: ["s1", "s2"]
+    members: ["s1", "s2", "s3"]
   scan-right:
-    members: ["s3", "s4"]
+    members: ["s4", "s5", "s6"]
   scan-outer:
-    members: ["s1", "s4"]
+    members: ["s1", "s6"]
+  scan-center:
+    members: ["s2", "s5"]
   scan-inner:
-    members: ["s2", "s3"]
+    members: ["s3", "s4"]
   mh:
     members: ["mh1", "mh2", "mh3", "mh4"]
   mh-left:
