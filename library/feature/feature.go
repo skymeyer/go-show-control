@@ -3,6 +3,7 @@ package feature
 import (
 	"go.skymyer.dev/show-control/dmx"
 
+	"go.skymyer.dev/show-control/library/feature/cannon"
 	"go.skymyer.dev/show-control/library/feature/dimmer"
 	"go.skymyer.dev/show-control/library/feature/gobo"
 	"go.skymyer.dev/show-control/library/feature/laser"
@@ -21,6 +22,9 @@ type Handler interface {
 
 func NewHandler(feature string, spec interface{}, channels dmx.Channels) Handler {
 	switch feature {
+	case cannon.NAME:
+		s := spec.(*cannon.Spec)
+		return cannon.NewHandler(s, channels)
 	case dimmer.NAME:
 		s := spec.(*dimmer.Spec)
 		return dimmer.NewHandler(s)
@@ -46,6 +50,8 @@ func NewHandler(feature string, spec interface{}, channels dmx.Channels) Handler
 
 func NewSpec(kind string) interface{} {
 	switch kind {
+	case cannon.NAME:
+		return new(cannon.Spec)
 	case dimmer.NAME:
 		return new(dimmer.Spec)
 	case gobo.NAME:
@@ -65,6 +71,10 @@ func NewSpec(kind string) interface{} {
 
 func NewConfig(kind string, c RawConfig) interface{} {
 	switch kind {
+	case cannon.NAME:
+		config := cannon.Feature{}
+		c.Unmarshal(&config)
+		return config
 	case dimmer.NAME:
 		config := dimmer.Feature{}
 		c.Unmarshal(&config)

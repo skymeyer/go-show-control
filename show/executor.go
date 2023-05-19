@@ -2,7 +2,6 @@ package show
 
 import (
 	"fmt"
-	"sort"
 	"sync"
 	"time"
 
@@ -11,6 +10,7 @@ import (
 	"go.skymyer.dev/show-control/app/logger"
 	"go.skymyer.dev/show-control/common"
 	"go.skymyer.dev/show-control/config"
+	"go.skymyer.dev/show-control/io"
 	"go.skymyer.dev/show-control/library/effect"
 	"go.skymyer.dev/show-control/library/feature"
 	"go.skymyer.dev/show-control/library/utils"
@@ -57,24 +57,19 @@ func (e *Executor) Load(files ...string) error {
 	return nil
 }
 
-func (e *Executor) GetSequenceNames() (names []string) {
+func (e *Executor) GetLiveSequences(page io.Page) []*Sequence {
 	e.lock.Lock()
 	defer e.lock.Unlock()
 
-	// Filter out sequences with a manual order id
-	var manual []*Sequence
+	// Filter out sequences with a button id configured
+	var list []*Sequence
 	for _, seq := range e.show.Sequences {
-		if seq.Manual > 0 {
-			manual = append(manual, seq)
+		if seq.Button > 0 && seq.Page == int8(page) {
+			list = append(list, seq)
 		}
 	}
 
-	// Sort by manual number and return sequence names
-	sort.Slice(manual, func(i, j int) bool { return manual[i].Manual < manual[j].Manual })
-	for _, seq := range manual {
-		names = append(names, seq.Name)
-	}
-	return names
+	return list
 }
 
 func (e *Executor) EnableSequences(list []ExecutorSequence) {

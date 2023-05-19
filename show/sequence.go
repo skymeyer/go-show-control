@@ -22,7 +22,11 @@ type Sequence struct {
 	Duration       time.Duration  `yaml:"duration,omitempty"`
 	BeatsPerMinute uint8          `yaml:"bpm,omitempty"`
 	Loop           bool           `yaml:"loop,omitempty"`
-	Manual         uint8          `yaml:"manual,omitempty"`
+
+	// Settings for live performance
+	Page   int8   `yaml:"page,omitempty"`
+	Button int8   `yaml:"button,omitempty"`
+	Type   string `yaml:"type,omitempty"`
 
 	started  bool
 	finished bool
@@ -74,6 +78,7 @@ func (s *Sequence) Start(t time.Time) {
 		zap.Strings("effects", s.effectsActive),
 		zap.Duration("duration", s.Duration),
 		zap.Uint8("bpm", s.BeatsPerMinute),
+		zap.Bool("loop", s.Loop),
 	)
 }
 
