@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/golang-migrate/migrate/v4 v4.15.2
+	github.com/gorilla/mux v1.7.4
 	github.com/spf13/cobra v1.5.0
 	github.com/tarm/serial v0.0.0-20180830185346-98f6abe2eb07
 	gitlab.com/gomidi/midi/v2 v2.0.25

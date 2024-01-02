@@ -14,6 +14,7 @@ import (
 	"go.skymyer.dev/show-control/db"
 	"go.skymyer.dev/show-control/io"
 	"go.skymyer.dev/show-control/io/novation"
+	"go.skymyer.dev/show-control/io/webhook"
 	"go.uber.org/zap"
 
 	_ "go.skymyer.dev/show-control/app/live"
@@ -45,6 +46,11 @@ func New() (*Controller, error) {
 		return nil, err
 	}
 
+	wh, err := io.New(webhook.DRIVER_NAME, "")
+	if err != nil {
+		return nil, err
+	}
+
 	mode1Handler := mode.MustHandler("LIVE_MODE")
 	mode2Handler := mode.MustHandler("DUMMY_MODE")
 	mode3Handler := mode.MustHandler("DUMMY_MODE")
@@ -53,7 +59,7 @@ func New() (*Controller, error) {
 	c := &Controller{
 		repo:       repo,
 		shutdownCh: make(chan bool, 1),
-		io:         []io.Driver{midi},
+		io:         []io.Driver{midi, wh},
 		handlers: map[io.Mode]mode.Handler{
 			io.MODE_1: mode1Handler,
 			io.MODE_2: mode2Handler,
