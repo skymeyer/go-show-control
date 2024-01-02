@@ -1,2 +1,4 @@
+/etc/backup*
 /tmp
 /dist
+/bin
