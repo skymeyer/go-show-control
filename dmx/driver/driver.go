@@ -29,11 +29,11 @@ type Driver interface {
 	SetUniverse(universe int, output *dmx.Frame) error
 }
 
-type Config struct {
-	Model          string
-	Serial         string
-	Firmware       string
-	BreakTime      int
-	MarkAfterBreak int
-	Rate           int
-}
+//type Config struct {
+//	Model          string
+//	Serial         string
+//	Firmware       string
+//	BreakTime      int
+//	MarkAfterBreak int
+//	Rate           int
+//}

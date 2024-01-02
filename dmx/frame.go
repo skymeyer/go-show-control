@@ -57,6 +57,11 @@ func NewFrame(kind FrameKind, slots int) *Frame {
 	return f
 }
 
+// Frame maintains two byte registers, being `current` and `new`. Any values stored
+// using `SetSlot` or read using `GetSlot` are using the `new` register. This allows
+// logic to set/get values separately from logic sending the full DMX frame to a DMX
+// device. Once all values of a given frame are in the correct state, calling `Apply`
+// copies the state from `new` to `current`.
 type Frame struct {
 	kind    FrameKind
 	slots   int
@@ -65,6 +70,12 @@ type Frame struct {
 	apply   sync.Mutex
 }
 
+// GetKind returns the type of DMX frame.
+func (f *Frame) GetKind() FrameKind {
+	return f.kind
+}
+
+// Apply the state of the `new` to the `current` register ready for Frame.Read.
 func (f *Frame) Apply(clear bool) {
 	f.apply.Lock()
 	defer f.apply.Unlock()
@@ -77,6 +88,7 @@ func (f *Frame) Apply(clear bool) {
 	}
 }
 
+// SetSlot sets the byte value of a given slot in the `new` register.
 func (f *Frame) SetSlot(slot int, val byte) error {
 	if slot < 1 || slot > f.slots {
 		return fmt.Errorf("invalid slot number")
@@ -85,6 +97,7 @@ func (f *Frame) SetSlot(slot int, val byte) error {
 	return nil
 }
 
+// GetSlot returns the byte value of a given slot from the `new` register.
 func (f *Frame) GetSlot(slot int) (byte, error) {
 	if slot < 1 || slot > f.slots {
 		return 0, fmt.Errorf("invalid slot number")
@@ -92,8 +105,17 @@ func (f *Frame) GetSlot(slot int) (byte, error) {
 	return f.new[slot], nil
 }
 
+// Read returns the full DMX frame including including kind from `current` register.
 func (f *Frame) Read() []byte {
 	f.apply.Lock()
 	defer f.apply.Unlock()
 	return f.current
+}
+
+// ReadSlots returns only the DMX slot data without the kind from `current` register.
+func (f *Frame) ReadSlots() (data []byte) {
+	f.apply.Lock()
+	defer f.apply.Unlock()
+	copy(data[:], f.current[1:])
+	return data
 }

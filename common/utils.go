@@ -1,6 +1,7 @@
 package common
 
 import (
+	"encoding/binary"
 	"io/ioutil"
 
 	"gopkg.in/yaml.v3"
@@ -30,4 +31,26 @@ func RemoveStringFromSlice(in []string, remove string) []string {
 		}
 	}
 	return in
+}
+
+func Uint16ToUint8(in uint16) (hi, lo uint8) {
+	return uint8(in >> 8), uint8(in)
+}
+
+func Uint8ToUint16(hi, lo uint8) (out uint16) {
+	return uint16(hi) << 8 & uint16(lo)
+}
+
+func PadToSize(data []byte, v interface{}) []byte {
+	var (
+		have = len(data)
+		want = binary.Size(v)
+	)
+	if have > want {
+		return data[:want-1]
+	}
+	if have < want {
+		return append(data, make([]byte, want-have)...)
+	}
+	return data
 }

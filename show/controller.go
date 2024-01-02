@@ -12,6 +12,7 @@ import (
 	"go.skymyer.dev/show-control/config"
 	"go.skymyer.dev/show-control/dmx"
 	"go.skymyer.dev/show-control/dmx/driver"
+	"go.skymyer.dev/show-control/dmx/driver/artnet"
 	"go.skymyer.dev/show-control/library"
 )
 
@@ -62,6 +63,16 @@ func New(setup *config.Setup, opts ...ControllerOpt) (*Controller, error) {
 		}
 	}
 
+	// Initialize Art-Net if enabled
+	if setup.Artnet.Enabled {
+		var err error
+		artnet.DefaultController, err = artnet.NewController(setup.Artnet.Network)
+		if err != nil {
+			return nil, fmt.Errorf("Art-Net initialization error: %v", err)
+		}
+		artnet.DefaultController.Run()
+	}
+
 	// Initialize devices
 	for name, device := range setup.Devices {
 		driver, err := driver.New(device.Driver, device.Device)
@@ -82,7 +93,7 @@ func New(setup *config.Setup, opts ...ControllerOpt) (*Controller, error) {
 		if !found {
 			return nil, fmt.Errorf("device reference %q invalid for universe %q", universe.Output.Device, name)
 		}
-		device.SetUniverse(0, output)
+		device.SetUniverse(universe.Output.Universe, output)
 
 		// Register the universe
 		c.universes[name] = &Universe{
@@ -160,25 +171,6 @@ func (c *Controller) Run() error {
 		defer ticker.Stop()
 		defer logger.Default.Debug("show controller terminated")
 
-		logger.Default.Debug("run init")
-
-		// FIXME init
-		//c.fixtures["strip"].SetValue("pan", "value", byte(220))     // 255 = forward
-		//c.fixtures["strip"].SetValue("pan-speed", "value", byte(0)) // 0 = fast
-
-		//c.fixtures["s1"].SetAttribute("settings", "blackout-gobo-on")
-		//c.fixtures["s2"].SetAttribute("settings", "blackout-gobo-on")
-		//c.fixtures["s3"].SetAttribute("settings", "blackout-gobo-on")
-		//c.fixtures["s4"].SetAttribute("settings", "blackout-gobo-on")
-		//time.Sleep(time.Second)
-		//c.fixtures["s1"].SetAttribute("settings", "none")
-		//c.fixtures["s2"].SetAttribute("settings", "none")
-		//c.fixtures["s3"].SetAttribute("settings", "none")
-		//c.fixtures["s4"].SetAttribute("settings", "none")
-
-		// RGB laser
-		//c.fixtures["laser-rgb-1"].SetAttribute("mode", "off")
-
 		logger.Default.Debug("start")
 
 		for {
@@ -186,13 +178,23 @@ func (c *Controller) Run() error {
 			case <-c.shutdownCh:
 				c.shutdownCh = nil
 				logger.Default.Debug("terminating")
+
+				// Terminate executors
 				for name := range c.executors {
 					c.TerminateExecutor(name)
 				}
+
+				// Stop all devices
 				for name, device := range c.devices {
 					logger.Default.Debug("stopping device", zap.String("device", name))
 					device.Stop()
 				}
+
+				// Stop ArtNet controller if initialized
+				if artnet.DefaultController != nil {
+					artnet.DefaultController.Stop()
+				}
+
 				logger.Default.Debug("stopped")
 				return
 			case t := <-ticker.C:

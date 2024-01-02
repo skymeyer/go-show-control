@@ -6,6 +6,7 @@ type Setup struct {
 	Universes map[string]*Universe
 	Fixtures  map[string]*Fixture
 	Groups    map[string]*Group
+	Artnet    Artnet
 }
 
 type Device struct {
@@ -36,4 +37,9 @@ type Fixture struct {
 
 type Group struct {
 	Members []string
+}
+
+type Artnet struct {
+	Enabled   bool
+	Network string
 }
