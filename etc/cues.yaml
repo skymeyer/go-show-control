@@ -74,6 +74,12 @@ cues:
         tilt: 0
         speed: 0
 
+  fogon:
+    - feature: relais1
+      fixtures: ["switch"]
+      config:
+        gobo: on
+
   warmup:
     - feature: uv
       groups: ["moon"]
@@ -146,11 +152,11 @@ cues:
     - feature: dimmer
       groups: ["wash-outer"]
       config:
-        value: 16000
+        value: 16000 # TEMPO: was 16000
     - feature: dimmer
       groups: ["wash-boot"]
       config:
-        value: 24000
+        value: 32000 # TEMPO: was 24000
     - feature: dimmer
       groups: ["scan"]
       config:
@@ -158,7 +164,7 @@ cues:
     - feature: dimmer
       groups: ["mh"]
       config:
-        value: 32000
+        value: 48000 # TEMP: was 32000
 
   dim-wash-mh:
     - feature: dimmer

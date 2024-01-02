@@ -1460,6 +1460,15 @@ sequences:
       - cues: ["strobe-scan-255", "strobe-mh-255", "strobe-wash-outer-255"]
         duration: 8h
 
+  fogon:
+    page: 1
+    button: 31
+    type: dimfx
+    loop: true
+    steps:
+      - cues: ["fogon"]
+        duration: 30s
+
   shoot1:
     page: 1
     button: 37

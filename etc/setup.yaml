@@ -1,115 +1,125 @@
 name: default
+artnet:
+  enabled: true
+  network: 10.0.0.0/8
 devices:
   dmx1:
-    driver: enttec-dmx-usb-pro
-    #driver: virtual
+    #driver: enttec-dmx-usb-pro
+    driver: virtual
     device: /dev/tty.usbserial-EN346679
+  artnet1:
+    driver: artnet
+    device: 1-2
 universes:
-  default:
+  u1:
+    output:
+      device: artnet1
+      universe: 3
+  u2:
     output:
       device: dmx1
       universe: 0
 fixtures:
   cannon:
     kind: ConfettiCannon
-    universe: default
+    universe: u1
     mode: 4ch
     address: 509
   moonl:
     kind: LaluceNatzDerby
-    universe: default
+    universe: u1
     mode: 7ch
     address: 8
   moonr:
     kind: LaluceNatzDerby
-    universe: default
+    universe: u1
     mode: 7ch
     address: 15
   switch:
     kind: Decoder3channel
-    universe: default
+    universe: u1
     mode: 3ch
     address: 58
   laser:
     kind: UKing-ZQ03003
-    universe: default
+    universe: u1
     mode: 7ch
     address: 1
   laser-rgb-1:
     kind: GruolinRGBFullColor
-    universe: default
+    universe: u1
     mode: 10ch
     address: 143
   wl:
     kind: Betopper-LPC008S
-    universe: default
+    universe: u1
     mode: 7ch
     address: 22
   wr:
     kind: Betopper-LPC008S
-    universe: default
+    universe: u1
     mode: 7ch
     address: 29
   boot1:
     kind: UKing-RGB-36
-    universe: default
+    universe: u1
     mode: 7ch
     address: 196
   boot2:
     kind: UKing-RGB-36
-    universe: default
+    universe: u1
     mode: 7ch
     address: 189
   mh1:
     kind: XPCLEOYZ-60w-90w-mini-led-spot
-    universe: default
+    universe: u1
     mode: 11ch
-    address: 83
+    address: 61
   mh2:
     kind: XPCLEOYZ-60w-90w-mini-led-spot
-    universe: default
+    universe: u1
     mode: 11ch
     address: 72
   mh3:
     kind: XPCLEOYZ-60w-90w-mini-led-spot
-    universe: default
+    universe: u1
     mode: 11ch
-    address: 61
+    address: 83
   mh4:
     kind: XPCLEOYZ-60w-90w-mini-led-spot
-    universe: default
+    universe: u1
     mode: 11ch
     address: 94
   s1:
     kind: Chauvet-Intimidator-Scan-110
-    universe: default
-    mode: 11ch
-    address: 47
-  s2:
-    kind: Chauvet-Intimidator-Scan-110
-    universe: default
-    mode: 11ch
-    address: 153
-  s3:
-    kind: Chauvet-Intimidator-Scan-110
-    universe: default
-    mode: 11ch
-    address: 203
-  s4:
-    kind: Chauvet-Intimidator-Scan-110
-    universe: default
+    universe: u1
     mode: 11ch
     address: 36
-  s5:
+  s2:
     kind: Chauvet-Intimidator-Scan-110
-    universe: default
+    universe: u1
+    mode: 11ch
+    address: 47
+  s3:
+    kind: Chauvet-Intimidator-Scan-110
+    universe: u1
+    mode: 11ch
+    address: 153
+  s4:
+    kind: Chauvet-Intimidator-Scan-110
+    universe: u1
     mode: 11ch
     address: 164
+  s5:
+    kind: Chauvet-Intimidator-Scan-110
+    universe: u1
+    mode: 11ch
+    address: 203
   s6:
     kind: Chauvet-Intimidator-Scan-110
-    universe: default
+    universe: u1
     mode: 11ch
-    address: 213
+    address: 214
 groups:
   moon:
     members: ["moonl", "moonr"]

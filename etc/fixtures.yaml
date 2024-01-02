@@ -71,7 +71,6 @@ ConfettiCannon:
             launch:
               min: 255
               max: 255
-
 GruolinRGBFullColor:
   manufacturer: Gruolin
   model: RGB Full Color Laser
@@ -1733,13 +1732,25 @@ Decoder3channel:
   model: 3 channel DMX decoder
   modes:
     3ch:
-      features: {}
+      features:
+        relais1:
+          kind: gobo
+          spec:
+            channel: output1
+        relais2:
+          kind: gobo
+          spec:
+            channel: output2
+        relais3:
+          kind: gobo
+          spec:
+            channel: output3
       dmx:
         output1:
           channel: 1
           description: relais 1
           default: 0
-          functions:
+          attributes:
             off:
               min: 0
               max: 127
@@ -1750,7 +1761,7 @@ Decoder3channel:
           channel: 2
           description: relais 2
           default: 0
-          functions:
+          attributes:
             off:
               min: 0
               max: 127
@@ -1761,7 +1772,7 @@ Decoder3channel:
           channel: 3
           description: relais 3
           default: 0
-          functions:
+          attributes:
             off:
               min: 0
               max: 127

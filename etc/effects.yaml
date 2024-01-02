@@ -245,14 +245,14 @@ effects:
       config:
         bpm: 65
       modulate:
-        - collections:
-            - fixtures: ["boot1","boot2"]
-            - {}
-          feature: dimmer
-          properties: ["value"]
-          min: 4000
-          max: 65535
-          shift: 0.30
+        #- collections:
+        #    - fixtures: ["boot1","boot2"]
+        #    - {}
+        #  feature: dimmer
+        #  properties: ["value"]
+        #  min: 4000
+        #  max: 65535
+        #  shift: 0.30
         - collections:
             - {}
             - fixtures: ["wl","wr"]
