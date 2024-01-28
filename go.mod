@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/golang-migrate/migrate/v4 v4.15.2
+	github.com/google/uuid v1.5.0
 	github.com/gorilla/mux v1.7.4
 	github.com/spf13/cobra v1.5.0
 	github.com/tarm/serial v0.0.0-20180830185346-98f6abe2eb07
@@ -19,7 +20,6 @@ require (
 	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
-	github.com/google/uuid v1.3.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/inconshreveable/log15 v2.16.0+incompatible // indirect
