@@ -113,7 +113,7 @@ func (f *Frame) Read() []byte {
 }
 
 // ReadSlots returns only the DMX slot data without the kind from `current` register.
-func (f *Frame) ReadSlots() (data []byte) {
+func (f *Frame) ReadSlots() (data [512]byte) {
 	f.apply.Lock()
 	defer f.apply.Unlock()
 	copy(data[:], f.current[1:])

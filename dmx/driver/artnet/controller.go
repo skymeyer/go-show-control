@@ -190,7 +190,8 @@ func (c *Controller) Run() error {
 					)
 				}
 
-				c.gcOutputPorts()
+				// FIXME: gc doesn't work
+				//c.gcOutputPorts()
 
 			case data := <-recvCh:
 				header, packet, err := UnmarshalBinary(data)
@@ -214,19 +215,27 @@ func (c *Controller) gcOutputPorts() {
 	c.outputPortsLock.Lock()
 	defer c.outputPortsLock.Unlock()
 
+	//logger.Default.Info("artnet node gc", zap.Any("ports", c.outputPorts))
+	//logger.Default.Info("artnet node gc", zap.Int("ports", c.outputPorts))
+
 	for i, port := range c.outputPorts {
-		if time.Since(port.LastSeen) > 5*time.Second {
+		logger.Default.Debug("artnet node output garbage collect",
+			zap.String("address", port.PortAddress.String()),
+			zap.String("last_seen", port.LastSeen.String()))
+		if time.Since(port.LastSeen) > 10*time.Second {
 			logger.Default.Warn("artnet node output port went away",
 				zap.String("name", port.Name),
 				zap.String("socket", port.Socket.String()),
-				zap.String("address", port.PortAddress.String()))
+				zap.String("address", port.PortAddress.String()),
+				zap.String("last_seen", port.LastSeen.String()))
 			delete(c.outputPorts, i)
 		}
 	}
 }
 
 func (c *Controller) handleArtPollReply(h *ArtNetHeader, p *ArtPollReply) {
-	logger.Default.Debug("ArtPollReply received", zap.String("node", p.GetLongName()), zap.Any("data", p))
+	//logger.Default.Debug("ArtPollReply received", zap.String("node", p.GetLongName()), zap.Any("data", p))
+	logger.Default.Debug("ArtPollReply received", zap.String("node", p.GetLongName()), zap.Any("ports", p.GetAvailableDMXOutputPorts()))
 
 	c.outputPortsLock.Lock()
 	defer c.outputPortsLock.Unlock()
@@ -238,7 +247,11 @@ func (c *Controller) handleArtPollReply(h *ArtNetHeader, p *ArtPollReply) {
 				zap.String("address", port.PortAddress.String()))
 			c.outputPorts[port.PortAddress] = port
 		}
+
 		c.outputPorts[port.PortAddress].LastSeen = time.Now()
+		logger.Default.Debug("artnet output port last seen updated", zap.String("name", port.Name),
+			zap.String("socket", port.Socket.String()),
+			zap.String("address", port.PortAddress.String()))
 	}
 }
 

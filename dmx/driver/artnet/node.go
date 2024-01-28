@@ -17,7 +17,7 @@ func init() {
 
 const (
 	DRIVER_NAME     = "artnet"
-	REFRESH_RATE_MS = 23 // Note: 44Hz or 22,72 ms, fetch from poll if available from node
+	REFRESH_RATE_MS = 22 // Note: 44Hz or 22,72 ms, fetch from poll if available from node
 )
 
 func NewArtNetNode(device string) (driver.Driver, error) {
@@ -48,7 +48,8 @@ func (n *ArtNetNode) SetUniverse(universe int, output *dmx.Frame) error {
 }
 
 func (n *ArtNetNode) Open() error {
-	// TODO - add discovery
+	// The artnet controller performs discovery and is responsible
+	// to eventually send out ArtDMX frames.
 	return nil
 }
 
@@ -95,9 +96,7 @@ func (n *ArtNetNode) Stop() error {
 
 func (n *ArtNetNode) send(frame *dmx.Frame) error {
 	if DefaultController != nil {
-		var data [512]byte
-		copy(data[:], frame.ReadSlots())
-		return DefaultController.SendDMX(n.portAddress, data)
+		return DefaultController.SendDMX(n.portAddress, frame.ReadSlots())
 	} else {
 		logger.Default.Warn("artnet controller not initialized yet")
 	}
