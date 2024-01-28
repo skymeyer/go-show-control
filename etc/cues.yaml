@@ -80,6 +80,54 @@ cues:
       config:
         gobo: on
 
+  laser-chauvet-sound:
+    - feature: control
+      fixtures: ["laser-chauvet"]
+      config:
+        gobo: sound
+
+  laser-chauvet-auto:
+    - feature: control
+      fixtures: ["laser-chauvet"]
+      config:
+        gobo: auto
+
+  # mirrors
+  # # {"pattern": 224, "size": 127, "angle": 0, "hangle": 0, "vangle": 0, "hpos": 43, "vpos": 18, "color": 255}
+  laser-chauvet-test:
+    - feature: manual
+      fixtures: ["laser-chauvet"]
+      config:
+        static: true
+        pattern: 224
+        size: 127
+        angle: 0
+        hangle: 0
+        vangle: 0
+        hpos: 43
+        vpos: 18
+
+  # wave zoom in/out
+  # {"pattern": 120, "size": 255, "angle": 0, "hangle": 0, "vangle": 0, "hpos": 62, "vpos": 18, "color": 255}
+  laser-chauvet-wave:
+    - feature: manual
+      fixtures: ["laser-chauvet"]
+      config:
+        static: true
+        pattern: 120
+        size: 255
+        angle: 0
+        hangle: 0
+        vangle: 0
+        hpos: 62
+        vpos: 18
+
+  laser-rgb-sound:
+    - feature: control
+      fixtures: ["laser-rgb-1"]
+      config:
+        gobo: sound
+
   warmup:
     - feature: uv
       groups: ["moon"]
@@ -125,6 +173,12 @@ cues:
         pan: 32768
         tilt: 8000
         speed: 0
+    - feature: position
+      groups: ["mh-side-door"]
+      config:
+        pan: 21845
+        tilt: 8000
+        speed: 0
 
   dim-blackout:
     - feature: dimmer
@@ -158,6 +212,10 @@ cues:
       config:
         value: 32000 # TEMPO: was 24000
     - feature: dimmer
+      groups: ["wash-room"]
+      config:
+        value: 65535
+    - feature: dimmer
       groups: ["scan"]
       config:
         value: 65535
@@ -165,6 +223,10 @@ cues:
       groups: ["mh"]
       config:
         value: 48000 # TEMP: was 32000
+    - feature: dimmer
+      groups: ["mh-side-door"]
+      config:
+        value: 65535
 
   dim-wash-mh:
     - feature: dimmer
@@ -179,6 +241,14 @@ cues:
       groups: ["mh"]
       config:
         value: 32000
+    - feature: dimmer
+      groups: ["wash-room"]
+      config:
+        value: 65535
+    - feature: dimmer
+      groups: ["mh-side-door"]
+      config:
+        value: 65535
 
   dim-wash-scan:
     - feature: dimmer
@@ -193,6 +263,10 @@ cues:
       groups: ["scan"]
       config:
         value: 65535
+    - feature: dimmer
+      groups: ["wash-room"]
+      config:
+        value: 65535
 
   col-white:
     - feature: white
@@ -204,7 +278,7 @@ cues:
       config:
         gobo: on
     - feature: rgb
-      groups: ["wash-outer"]
+      groups: ["wash-outer", "wash-room"]
       config:
         red: 255
         green: 255
@@ -223,6 +297,14 @@ cues:
       groups: ["scan","mh","wash"]
       config:
         value: 65535
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        red: 255
+        green: 255
+        blue: 255
+        white: 255
+
   col-red:
     - feature: uv
       groups: ["moon"]
@@ -240,6 +322,16 @@ cues:
       groups: ["mh"]
       config:
         gobo: circles
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        red: 255
+    - feature: ring-color
+      groups: ["mh-side-door"]
+      config:
+        gobo: red
+
+
   col-red-green-1:
     - feature: uv
       groups: ["moon"]
@@ -261,6 +353,10 @@ cues:
       groups: ["mh"]
       config:
         gobo: flower
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        green: 255
   col-red-green-2:
     - feature: uv
       groups: ["moon"]
@@ -282,6 +378,11 @@ cues:
       groups: ["mh"]
       config:
         gobo: circles
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        red: 255
+
   col-red-white:
     - feature: uv
       groups: ["moon"]
@@ -299,6 +400,10 @@ cues:
       groups: ["mh"]
       config:
         gobo: triangle
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        white: 255
   col-green:
     - feature: uv
       groups: ["moon"]
@@ -316,6 +421,10 @@ cues:
       groups: ["mh"]
       config:
         gobo: star
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        green: 255
   col-blue:
     - feature: uv
       groups: ["moon"]
@@ -333,6 +442,10 @@ cues:
       groups: ["mh"]
       config:
         gobo: sun
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        blue: 255
   col-blue-white:
     - feature: uv
       groups: ["moon"]
@@ -350,6 +463,12 @@ cues:
       groups: ["mh"]
       config:
         gobo: whirlpool
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        red: 255
+        green: 255
+        blue: 255
   col-blue-white-1:
     - feature: uv
       groups: ["moon"]
@@ -371,6 +490,12 @@ cues:
       groups: ["mh"]
       config:
         gobo: glass
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        red: 255
+        green: 255
+        blue: 255
   col-blue-white-2:
     - feature: uv
       groups: ["moon"]
@@ -392,6 +517,10 @@ cues:
       groups: ["mh"]
       config:
         gobo: flower
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        blue: 255
   col-magenta:
     - feature: uv
       groups: ["moon"]
@@ -410,6 +539,11 @@ cues:
       groups: ["mh"]
       config:
         gobo: circles
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        red: 255
+        blue: 255
   col-magenta-cyan:
     - feature: uv
       groups: ["moon"]
@@ -428,13 +562,18 @@ cues:
       groups: ["mh"]
       config:
         gobo: triangle
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        red: 255
+        blue: 255
   col-red-orange-yellow:
     - feature: uv
       groups: ["moon"]
       config:
         gobo: on
     - feature: rgb
-      groups: ["wash-boot"]
+      groups: ["wash-boot","wash-room"]
       config:
         red: 255
         green: 65
@@ -454,13 +593,18 @@ cues:
       groups: ["mh"]
       config:
         gobo: star
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        red: 255
+        green: 65
   col-red-orange-white:
     - feature: uv
       groups: ["moon"]
       config:
         gobo: on
     - feature: rgb
-      groups: ["wash-boot"]
+      groups: ["wash-boot", "wash-room"]
       config:
         red: 255
         green: 65
@@ -480,6 +624,12 @@ cues:
       groups: ["mh"]
       config:
         gobo: star
+    - feature: rgb
+      groups: ["mh-side-door"]
+      config:
+        red: 255
+        green: 255
+        blue: 255
 
   laser-rgb-green-liquid:
     - feature: manual
@@ -710,6 +860,21 @@ cues:
       groups: ["moon"]
       config:
         value: 10
+  strobe-wash-side-door:
+    - feature: strobe
+      fixtures: ["wash-side-door-left", "wash-side-door-right", "wash-side-door-left"]
+      config:
+        value: 255
+  strobe-mh-side-door:
+    - feature: strobe
+      groups: ["mh-side-door"]
+      config:
+        value: 240
+    #- feature: ring-strobe
+    #  groups: ["mh-side-door"]
+    #  config:
+    #    value: 128
+
 
   # Chasers dim
   dim-chase-uv-moonl:

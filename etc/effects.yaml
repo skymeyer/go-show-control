@@ -65,6 +65,16 @@ effects:
           min: 21845
           max: 43690
           shift: 0.5
+        - collections:
+            - fixtures: ["mh-side-door-right"]
+            - fixtures: []
+            - fixtures: []
+            - fixtures: ["mh-side-door-left"]
+          feature: position
+          properties: ["pan"]
+          min: 16383
+          max: 27307
+          shift: 0.5
     - kind: sine
       config:
         #bpmf: 1
@@ -100,6 +110,18 @@ effects:
           min: 30037
           max: 35498
           shift: 0.5
+        - collections:
+            - fixtures: ["mh-side-door-right"]
+            - {}
+            - {}
+            - {}
+            - {}
+            - fixtures: ["mh-side-door-left"]
+          feature: position
+          properties: ["pan"]
+          min: 16383
+          max: 21845
+          shift: 0.5
     - kind: sine
       config:
         bpmf: 1
@@ -123,12 +145,12 @@ effects:
         bpm: 30
       modulate:
         - collections:
-            - fixtures: ["mh1"]
+            - fixtures: ["mh1","mh-side-door-right"]
             - {}
             - fixtures: ["mh2"]
             - fixtures: ["mh3"]
             - {}
-            - fixtures: ["mh4"]
+            - fixtures: ["mh4","mh-side-door-left"]
           feature: position
           properties: ["tilt"]
           min: 0
@@ -159,7 +181,7 @@ effects:
         bpm: 15
       modulate:
         - collections:
-            - fixtures: ["mh1"]
+            - fixtures: ["mh1","mh-side-door-right"]
             - {}
             - fixtures: ["mh2"]
             - {}
@@ -168,7 +190,7 @@ effects:
             - {}
             - fixtures: ["mh3"]
             - {}
-            - fixtures: ["mh4"]
+            - fixtures: ["mh4","mh-side-door-left"]
           feature: position
           properties: ["tilt"]
           min: 0
@@ -203,7 +225,7 @@ effects:
         bpm: 30
       modulate:
         - collections:
-            - fixtures: ["mh1"]
+            - fixtures: ["mh1", "mh-side-door-right"]
             - {}
             - fixtures: ["mh2"]
             - {}
@@ -212,7 +234,7 @@ effects:
             - {}
             - fixtures: ["mh3"]
             - {}
-            - fixtures: ["mh4"]
+            - fixtures: ["mh4", "mh-side-door-left"]
           feature: position
           properties: ["tilt"]
           min: 0
@@ -245,22 +267,37 @@ effects:
       config:
         bpm: 65
       modulate:
-        #- collections:
-        #    - fixtures: ["boot1","boot2"]
-        #    - {}
-        #  feature: dimmer
-        #  properties: ["value"]
-        #  min: 4000
-        #  max: 65535
-        #  shift: 0.30
+        - collections:
+            - groups: ["wash-room"]
+            - {}
+          feature: dimmer
+          properties: ["value"]
+          min: 2000
+          max: 65535
+          shift: 0.30
+        - collections:
+            - groups: ["mh-side-door"]
+            - {}
+          feature: dimmer
+          properties: ["value"]
+          min: 2000
+          max: 65535
+          shift: 0.30
         - collections:
             - {}
-            - fixtures: ["wl","wr"]
+            - groups: ["wash-outer", "wash-boot"]
           feature: dimmer
           properties: ["value"]
           min: 4000
           max: 32678
           shift: 0.30
+        - collections:
+            - groups: ["scan"]
+            - {}
+          feature: dimmer
+          properties: ["value"]
+          min: 16000
+          max: 65535
   pulse-scan:
     - kind: sine
       config:
@@ -272,6 +309,18 @@ effects:
           properties: ["value"]
           min: 16000
           max: 65535
+  pulse-mh-side-door:
+    - kind: sine
+      config:
+        bpm: 65
+      modulate:
+        - collections:
+            - groups: ["mh-side-door"]
+          feature: dimmer
+          properties: ["value"]
+          min: 2000
+          max: 65535
+          shift: 0.30
 
   sweep-ud-staggered:
     - kind: sine
@@ -337,7 +386,7 @@ effects:
           min: 0
           max: 65535
         - collections:
-            - groups: ["mh"]
+            - groups: ["mh", "mh-side-door"]
           feature: dimmer
           properties: ["value"]
           min: 0
@@ -354,7 +403,7 @@ effects:
           min: 24576
           max: 65535
         - collections:
-            - groups: ["mh"]
+            - groups: ["mh", "mh-side-door"]
           feature: position
           properties: ["tilt"]
           min: 8000
@@ -376,7 +425,7 @@ effects:
           shift: 0.5
         - collections:
             - {}
-            - groups: ["mh"]
+            - groups: ["mh","mh-side-door"]
           feature: dimmer
           properties: ["value"]
           min: 0
@@ -397,7 +446,7 @@ effects:
           shift: 0
         - collections:
             - {}
-            - groups: ["mh"]
+            - groups: ["mh","mh-side-door"]
           feature: position
           properties: ["tilt"]
           min: 0
@@ -462,7 +511,7 @@ effects:
           shift: 0
         - collections:
             - {}
-            - groups: ["mh"]
+            - groups: ["mh", "mh-side-door"]
           feature: dimmer
           properties: ["value"]
           min: 0
@@ -482,7 +531,7 @@ effects:
           max: 65535
           shift: 0
         - collections:
-            - groups: ["mh"]
+            - groups: ["mh", "mh-side-door"]
             - {}
           feature: position
           properties: ["tilt"]

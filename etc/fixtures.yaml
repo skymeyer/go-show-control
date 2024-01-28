@@ -77,6 +77,10 @@ GruolinRGBFullColor:
   modes:
     10ch:
       features:
+        control:
+          kind: gobo
+          spec:
+            channel: mode
         manual:
           kind: laser
           spec:
@@ -1778,4 +1782,477 @@ Decoder3channel:
               max: 127
             on:
               min: 128
+              max: 255
+LaluceNatz-PAR-18:
+  manufacturer: Latuce Natz
+  model: 18 LEDSs Par Light
+  modes:
+    7ch:
+      features:
+        dimmer:
+          kind: dimmer
+          spec:
+            channel: dimmer
+            attribute: value
+        strobe:
+          kind: strobe
+          spec:
+            channel: strobe
+            attribute: value
+        rgb:
+          kind: rgbw
+          spec:
+            red:
+              - channel: red
+                attribute: value
+            green:
+              - channel: green
+                attribute: value
+            blue:
+              - channel: blue
+                attribute: value
+      dmx:
+        dimmer:
+          channel: 1
+          description: General dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        red:
+          channel: 2
+          description: Red dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        green:
+          channel: 3
+          description: Green dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        blue:
+          channel: 4
+          description: Blue dimming
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        strobe:
+          channel: 6
+          description: General strobe
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+ChauvetScorpion:
+  manufacturer: Chauvet
+  model: Dual Green Laser
+  modes:
+    10ch:
+      features:
+        control:
+          kind: gobo
+          spec:
+            channel: control
+        manual:
+          kind: laser
+          spec:
+            static:
+              channel: strobe
+              attribute: on
+            pattern:
+              channel: pattern
+              attribute: value
+            size:
+              channel: zoom
+              attribute: value
+            angle:
+              channel: zaxis
+              attribute: value
+            hangle:
+              channel: xaxis
+              attribute: value
+            vangle:
+              channel: yaxis
+              attribute: value
+            hpos:
+              channel: pan
+              attribute: value
+            vpos:
+              channel: tilt
+              attribute: value
+      dmx:
+        control:
+          channel: 1
+          description: control function
+          default: 0
+          attributes:
+            dmx:
+              min: 0
+              max: 85
+            auto:
+              min: 86
+              max: 170
+            sound:
+              min: 171
+              max: 255
+        strobe:
+          channel: 2
+          description: strobe
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            off: # laser off
+              min: 0
+              max: 9
+            strobe: # slow to fast
+              min: 10
+              max: 249
+            on:
+              min: 250
+              max: 255
+        pattern:
+          channel: 3
+          description: pattern
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            wave:
+              min: 120
+              max: 127
+        zoom:
+          channel: 4
+          description: zoom
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            zoom:
+              min: 0
+              max: 127
+            in:
+              min: 128
+              max: 169
+            out:
+              min: 170
+              max: 209
+            inout:
+              min: 210
+              max: 255
+        yaxis:
+          channel: 5
+          description: y axis rolling
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            fixed: # 0 to 359 degrees on Y
+              min: 0
+              max: 127
+            cw: # clockwise rolling, slow to fast
+              min: 128
+              max: 191
+            ccw: # counter clockwise rolling, slow to fast
+              min: 192
+              max: 255
+        xaxis:
+          channel: 6
+          description: x axis rolling
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            fixed: # 0 to 359 degrees on X
+              min: 0
+              max: 127
+            cw: # clockwise rolling, slow to fast
+              min: 128
+              max: 191
+            ccw: # counter clockwise rolling, slow to fast
+              min: 192
+              max: 255
+        zaxis:
+          channel: 7
+          description: z axis rolling
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            fixed: # 0 to 359 degrees on X
+              min: 0
+              max: 127
+            cw: # clockwise rolling, slow to fast
+              min: 128
+              max: 191
+            ccw: # counter clockwise rolling, slow to fast
+              min: 192
+              max: 255
+        pan:
+          channel: 8
+          description: pan
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            fixed: # 128 horizontal points
+              min: 0
+              max: 127
+            cw: # clockwise movement, slow to fast
+              min: 128
+              max: 191
+            ccw: # counter clockwise movem, slow to fast
+              min: 192
+              max: 255
+        tilt:
+          channel: 9
+          description: tilt
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            fixed: # 128 horizontal points
+              min: 0
+              max: 127
+            cw: # clockwise movement, slow to fast
+              min: 128
+              max: 191
+            ccw: # counter clockwise movem, slow to fast
+              min: 192
+              max: 255
+        speed:
+          channel: 10
+          description: scan speed
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            manual: # fast to slow manual
+              min: 0
+              max: 127
+            autosf: # slow to fast auto
+              min: 128
+              max: 169
+            autofs: # fast to slow auto
+              min: 170
+              max: 209
+            autofssf: # fast to slow, slow to fast auto repeat
+              min: 210
+              max: 255
+UKing-Moving-Head-ZQ02241:
+  manufacturer: UKing
+  model: Moving Head with LED circle
+  modes:
+    16ch:
+      features:
+        dimmer:
+          kind: dimmer
+          spec:
+            channel: dimmer
+            attribute: value
+        strobe:
+          kind: strobe
+          spec:
+            channel: strobe
+            attribute: value
+        ring-strobe:
+          kind: strobe
+          spec:
+            channel: ring-strobe
+            attribute: value
+        rgb:
+          kind: rgbw
+          spec:
+            red:
+              - channel: red
+                attribute: value
+            green:
+              - channel: green
+                attribute: value
+            blue:
+              - channel: blue
+                attribute: value
+            white:
+              - channel: white
+                attribute: value
+        position:
+          kind: pantilt
+          spec:
+            pan:
+              channel: pan
+              attribute: value
+            panFine:
+              channel: pan-fine
+              attribute: value
+            tilt:
+              channel: tilt
+              attribute: value
+            tiltFine:
+              channel: tilt-fine
+              attribute: value
+            speed:
+              channel: speed
+              attribute: value
+        ring-color:
+          kind: gobo
+          spec:
+            channel: ring-color
+      dmx:
+        pan:
+          channel: 1
+          description: pan
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        pan-fine:
+          channel: 2
+          description: pan fine
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        tilt:
+          channel: 3
+          description: tilt
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        tilt-fine:
+          channel: 4
+          description: tilt fine
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        speed:
+          channel: 5
+          description: Pan/tilt speed
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        dimmer:
+          channel: 6
+          description: Color
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        strobe:
+          channel: 7
+          description: Strobe
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        red:
+          channel: 8
+          description: RGB Red
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        green:
+          channel: 9
+          description: RGB Green
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        blue:
+          channel: 10
+          description: RGB Blue
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+        white:
+          channel: 11
+          description: RGB White
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+
+        # channel 12 - color change related ?
+        # channel 13 - auto moving ?
+        ring-strobe:
+          channel: 12
+          description: LED ring
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            none:
+              min: 0
+              max: 8
+            strobe:
+              min: 9
+              max: 250
+            on:
+              min: 251
+              max: 255
+        ring-color:
+          channel: 15
+          description: Ring color
+          default: 0
+          attributes:
+            value:
+              min: 0
+              max: 255
+            off:
+              min: 0
+              max: 10
+            red:
+              min: 11
+              max: 44
+            green:
+              min: 45
+              max: 80
+            blue:
+              min: 81
+              max: 114
+            yellow:
+              min: 115
+              max: 149
+            pink:
+              min: 150
+              max: 184
+            cyan:
+              min: 185
+              max: 220
+            white:
+              min: 221
               max: 255

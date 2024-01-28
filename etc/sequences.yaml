@@ -1327,6 +1327,15 @@ sequences:
       - fxs: ["pulse-scan"]
         duration: 8h
 
+  pulse-mh-side-door:
+    page: 1
+    button: 62
+    type: dimfx
+    loop: true
+    steps:
+      - fxs: ["pulse-mh-side-door"]
+        duration: 8h
+
 
   laser-rgb-green:
     page: 1
@@ -1364,91 +1373,40 @@ sequences:
       - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
         duration: 8h
 
-  laser-cycle:
+  laser-rgb:
     page: 1
     button: 33
     type: dimfx
     loop: true
     steps:
-      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-rectangle"]
-        duration: 15s
-      - cues: ["laser-rgb-blue-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-circle"]
-        duration: 15s
-      - cues: ["laser-rgb-green-liquid", "laser-rectangle"]
+      - cues: ["laser-rgb-sound"]
+        duration: 8h
+
+  laser-chauvet:
+    page: 1
+    button: 34
+    type: dimfx
+    loop: true
+    steps:
+      - cues: ["laser-chauvet-sound"]
+        duration: 8h
+
+  laser-chauvet-wave:
+    page: 1
+    button: 35
+    type: dimfx
+    loop: true
+    steps:
+      - cues: ["laser-chauvet-wave"]
+        duration: 8h
+
+  laser-chauvet-test:
+    page: 1
+    button: 36
+    type: dimfx
+    loop: true
+    steps:
+      - cues: ["laser-chauvet-test"]
         duration: 8h
 
   strobe:
@@ -1457,7 +1415,8 @@ sequences:
     type: dimfx
     loop: true
     steps:
-      - cues: ["strobe-scan-255", "strobe-mh-255", "strobe-wash-outer-255"]
+      # strobe-wash-side-door doesnt work equally on all
+      - cues: ["strobe-scan-255", "strobe-mh-255", "strobe-wash-outer-255","strobe-mh-side-door"]
         duration: 8h
 
   fogon:

@@ -2,22 +2,40 @@ name: default
 artnet:
   enabled: true
   network: 10.0.0.0/8
+  #network: 192.168.86.0/24
 devices:
-  dmx1:
+  #dmx1:
     #driver: enttec-dmx-usb-pro
-    driver: virtual
-    device: /dev/tty.usbserial-EN346679
+    #driver: virtual
+    #device: /dev/tty.usbserial-EN346679
   artnet1:
     driver: artnet
+    device: 1-1
+  artnet2:
+    driver: artnet
     device: 1-2
+  artnet3:
+    driver: artnet
+    device: 1-3
+  artnet4:
+    driver: artnet
+    device: 1-4
 universes:
   u1:
     output:
       device: artnet1
-      universe: 3
+      universe: 0
   u2:
     output:
-      device: dmx1
+      device: artnet2
+      universe: 0
+  u3:
+    output:
+      device: artnet3
+      universe: 0
+  u4:
+    output:
+      device: artnet4
       universe: 0
 fixtures:
   cannon:
@@ -120,6 +138,39 @@ fixtures:
     universe: u1
     mode: 11ch
     address: 214
+  # Universe 2 SIDE DOOR
+  laser-chauvet:
+    kind: ChauvetScorpion
+    universe: u1
+    mode: 10ch
+    address: 401
+  wash-side-door-right: # This other type ???
+    #kind: LaluceNatz-PAR-18
+    kind: UKing-RGB-36
+    universe: u2
+    mode: 7ch
+    address: 11
+  mh-side-door-right:
+    kind: UKing-Moving-Head-ZQ02241
+    universe: u2
+    mode: 16ch
+    address: 32
+  wash-side-door-mid:
+    kind: UKing-RGB-36
+    universe: u2
+    mode: 7ch
+    address: 18
+  mh-side-door-left:
+    kind: UKing-Moving-Head-ZQ02241
+    universe: u2
+    mode: 16ch
+    address: 47
+  wash-side-door-left:
+    kind: LaluceNatz-PAR-18
+    universe: u2
+    mode: 7ch
+    address: 25
+
 groups:
   moon:
     members: ["moonl", "moonr"]
@@ -128,9 +179,11 @@ groups:
   laser-rgb:
     members: ["laser-rgb-1"]
   wash:
-    members: ["wl", "wr", "boot1", "boot2"]
+    members: ["wl", "wr", "boot1", "boot2", "wash-side-door-right", "wash-side-door-left", "wash-side-door-mid"]
   wash-outer:
     members: ["wl", "wr"]
+  wash-room:
+    members: ["wash-side-door-right", "wash-side-door-left", "wash-side-door-mid"]
   wash-boot:
     members: ["boot1", "boot2"]
   scan:
@@ -155,3 +208,5 @@ groups:
     members: ["mh1", "mh4"]
   mh-inner:
     members: ["mh2", "mh3"]
+  mh-side-door:
+    members: ["mh-side-door-left", "mh-side-door-right"]
