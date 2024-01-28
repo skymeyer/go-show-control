@@ -8,14 +8,14 @@ import (
 	"fmt"
 	"path/filepath"
 
+	"go.uber.org/zap"
+
 	"go.skymyer.dev/show-control/app/logger"
 	"go.skymyer.dev/show-control/app/mode"
 	"go.skymyer.dev/show-control/common"
+	"go.skymyer.dev/show-control/config"
 	"go.skymyer.dev/show-control/db"
 	"go.skymyer.dev/show-control/io"
-	"go.skymyer.dev/show-control/io/novation"
-	"go.skymyer.dev/show-control/io/webhook"
-	"go.uber.org/zap"
 
 	_ "go.skymyer.dev/show-control/app/live"
 	_ "go.skymyer.dev/show-control/app/program"
@@ -28,7 +28,9 @@ var (
 	Database = "database.sqlite"
 )
 
-func New() (*Controller, error) {
+func New(cfg *config.App) (*Controller, error) {
+
+	logger.Default.Info("runtime controller starting")
 
 	userDir, err := common.GetUserConfigDir(Name)
 	if err != nil {
@@ -41,14 +43,16 @@ func New() (*Controller, error) {
 		return nil, err
 	}
 
-	midi, err := io.New(novation.DRIVER_NAME, novation.LAUNCHPAD_MINI_MK3)
-	if err != nil {
-		return nil, err
-	}
-
-	wh, err := io.New(webhook.DRIVER_NAME, "")
-	if err != nil {
-		return nil, err
+	var ioDrivers = []io.Driver{}
+	for name, driver := range cfg.IODrivers {
+		if driver.Enabled {
+			d, err := io.New(name, driver.Device)
+			if err != nil {
+				return nil, err
+			}
+			logger.Default.Debug("io driver loaded", zap.String("name", name))
+			ioDrivers = append(ioDrivers, d)
+		}
 	}
 
 	mode1Handler := mode.MustHandler("LIVE_MODE")
@@ -59,7 +63,7 @@ func New() (*Controller, error) {
 	c := &Controller{
 		repo:       repo,
 		shutdownCh: make(chan bool, 1),
-		io:         []io.Driver{midi, wh},
+		io:         ioDrivers,
 		handlers: map[io.Mode]mode.Handler{
 			io.MODE_1: mode1Handler,
 			io.MODE_2: mode2Handler,
@@ -100,14 +104,14 @@ func (c *Controller) Run() error {
 	inputCh := make(chan io.InputEvent)
 	defer close(inputCh)
 
-	logger.Default.Debug("init io devices")
+	logger.Default.Debug("init io devices", zap.Int("count", len(c.io)))
 	for _, device := range c.io {
 		if err := device.Open(inputCh); err != nil {
 			return fmt.Errorf("open device: %v", err)
 		}
 	}
 
-	logger.Default.Info("running")
+	logger.Default.Info("app controller running")
 	c.switchToMain()
 
 	for {

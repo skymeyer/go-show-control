@@ -40,6 +40,6 @@ type Group struct {
 }
 
 type Artnet struct {
-	Enabled   bool
+	Enabled bool
 	Network string
 }

@@ -2,13 +2,13 @@ package common
 
 import (
 	"encoding/binary"
-	"io/ioutil"
+	"os"
 
 	"gopkg.in/yaml.v3"
 )
 
 func LoadFromFile(file string, target interface{}) error {
-	data, err := ioutil.ReadFile(file)
+	data, err := os.ReadFile(file)
 	if err != nil {
 		return err
 	}
