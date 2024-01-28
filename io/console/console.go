@@ -1,6 +1,7 @@
 package console
 
 import (
+	"fmt"
 	ios "io"
 	"os"
 	"sync"
@@ -36,6 +37,8 @@ func (c *Console) Open(input chan<- io.InputEvent) error {
 func (c *Console) Handle(event ...interface{}) {
 	c.eventLock.Lock()
 	defer c.eventLock.Unlock()
+
+	fmt.Fprintf(c.out, "Event received %#v\n", event)
 }
 
 func (c *Console) Close() error {

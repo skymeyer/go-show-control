@@ -13,6 +13,7 @@ import (
 
 	"go.skymyer.dev/show-control/app/logger"
 	"go.skymyer.dev/show-control/io"
+	"go.skymyer.dev/show-control/io/webhook/shortcuts"
 )
 
 func init() {
@@ -24,10 +25,13 @@ const (
 )
 
 func New(device string) (io.Driver, error) {
-	return &Webhook{}, nil
+	return &Webhook{
+		listen: device,
+	}, nil
 }
 
 type Webhook struct {
+	listen    string
 	input     chan<- io.InputEvent
 	eventLock sync.Mutex
 	server    *http.Server
@@ -38,21 +42,22 @@ func (w *Webhook) Open(input chan<- io.InputEvent) error {
 	w.input = input
 
 	router := mux.NewRouter()
+	router.HandleFunc("/import", shortcuts.ImportHandler).Methods("GET")
+
 	io := router.PathPrefix("/io").Subrouter()
 	io.HandleFunc("/control/{key}", w.controlHandler).Methods("POST")
 	io.HandleFunc("/button/{key}", w.buttonHandler).Methods("POST")
 
-	addr := ":8765" // FIXME use config
 	w.server = &http.Server{
 		Handler:      router,
-		Addr:         addr,
+		Addr:         w.listen,
 		WriteTimeout: 5 * time.Second,
 		ReadTimeout:  5 * time.Second,
 		IdleTimeout:  60 * time.Second,
 	}
 
 	go func() {
-		logger.Default.Info("webhook server startup", zap.String("addr", addr))
+		logger.Default.Info("webhook server startup", zap.String("listen", w.listen))
 		err := w.server.ListenAndServe()
 		if errors.Is(err, http.ErrServerClosed) {
 			logger.Default.Info("webhook server closed")
