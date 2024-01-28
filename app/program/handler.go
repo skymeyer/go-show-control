@@ -46,14 +46,14 @@ func NewHandler() (mode.Handler, error) {
 				{Button: io.BTN_6_1, Kind: io.BTN_KIND_WIDGET_SLIDER_WHITE}, // tilt
 			},
 			io.PAGE_4: {
-				{Button: io.BTN_1_1, Kind: io.BTN_KIND_WIDGET_SLIDER_RED},   // color
-				{Button: io.BTN_2_1, Kind: io.BTN_KIND_WIDGET_SLIDER_WHITE}, // pattern
-				{Button: io.BTN_3_1, Kind: io.BTN_KIND_WIDGET_SLIDER_WHITE}, // size
-				{Button: io.BTN_4_1, Kind: io.BTN_KIND_WIDGET_SLIDER_GREEN}, // angle
-				{Button: io.BTN_5_1, Kind: io.BTN_KIND_WIDGET_SLIDER_GREEN}, // hangle
-				{Button: io.BTN_6_1, Kind: io.BTN_KIND_WIDGET_SLIDER_GREEN}, // vangle
-				{Button: io.BTN_7_1, Kind: io.BTN_KIND_WIDGET_SLIDER_BLUE},  // hpos
-				{Button: io.BTN_8_1, Kind: io.BTN_KIND_WIDGET_SLIDER_BLUE},  // vpos
+				{Button: io.BTN_1_1, Kind: io.BTN_KIND_WIDGET_SLIDER_WHITE}, // pattern
+				{Button: io.BTN_2_1, Kind: io.BTN_KIND_WIDGET_SLIDER_WHITE}, // size
+				{Button: io.BTN_3_1, Kind: io.BTN_KIND_WIDGET_SLIDER_GREEN}, // angle
+				{Button: io.BTN_4_1, Kind: io.BTN_KIND_WIDGET_SLIDER_GREEN}, // hangle
+				{Button: io.BTN_5_1, Kind: io.BTN_KIND_WIDGET_SLIDER_GREEN}, // vangle
+				{Button: io.BTN_6_1, Kind: io.BTN_KIND_WIDGET_SLIDER_BLUE},  // hpos
+				{Button: io.BTN_7_1, Kind: io.BTN_KIND_WIDGET_SLIDER_BLUE},  // vpos
+				{Button: io.BTN_8_1, Kind: io.BTN_KIND_WIDGET_SLIDER_RED},   // color
 			},
 		},
 	}, nil
@@ -101,7 +101,6 @@ type Handler struct {
 
 	// Page 4 - Laser control
 	arrowsPage4  *ArrowsCallControl
-	laserColor   *Slider
 	laserPattern *Slider
 	laserSize    *Slider
 	laserAngle   *Slider
@@ -109,6 +108,7 @@ type Handler struct {
 	laserVAngle  *Slider
 	laserHPos    *Slider
 	laserVPos    *Slider
+	laserColor   *Slider
 }
 
 func (h *Handler) Start() (err error) {
@@ -252,41 +252,41 @@ func (h *Handler) Start() (err error) {
 
 	// PAGE 4
 
-	h.laserColor = &Slider{
+	h.laserPattern = &Slider{
 		Buttons: []io.Button{io.BTN_1_1, io.BTN_1_2, io.BTN_1_3, io.BTN_1_4, io.BTN_1_5, io.BTN_1_6, io.BTN_1_7, io.BTN_1_8},
 	}
-	h.laserPattern = &Slider{
+	h.laserSize = &Slider{
 		Buttons: []io.Button{io.BTN_2_1, io.BTN_2_2, io.BTN_2_3, io.BTN_2_4, io.BTN_2_5, io.BTN_2_6, io.BTN_2_7, io.BTN_2_8},
 	}
-	h.laserSize = &Slider{
+	h.laserAngle = &Slider{
 		Buttons: []io.Button{io.BTN_3_1, io.BTN_3_2, io.BTN_3_3, io.BTN_3_4, io.BTN_3_5, io.BTN_3_6, io.BTN_3_7, io.BTN_3_8},
 	}
-	h.laserAngle = &Slider{
+	h.laserHAngle = &Slider{
 		Buttons: []io.Button{io.BTN_4_1, io.BTN_4_2, io.BTN_4_3, io.BTN_4_4, io.BTN_4_5, io.BTN_4_6, io.BTN_4_7, io.BTN_4_8},
 	}
-	h.laserHAngle = &Slider{
+	h.laserVAngle = &Slider{
 		Buttons: []io.Button{io.BTN_5_1, io.BTN_5_2, io.BTN_5_3, io.BTN_5_4, io.BTN_5_5, io.BTN_5_6, io.BTN_5_7, io.BTN_5_8},
 	}
-	h.laserVAngle = &Slider{
+	h.laserHPos = &Slider{
 		Buttons: []io.Button{io.BTN_6_1, io.BTN_6_2, io.BTN_6_3, io.BTN_6_4, io.BTN_6_5, io.BTN_6_6, io.BTN_6_7, io.BTN_6_8},
 	}
-	h.laserHPos = &Slider{
+	h.laserVPos = &Slider{
 		Buttons: []io.Button{io.BTN_7_1, io.BTN_7_2, io.BTN_7_3, io.BTN_7_4, io.BTN_7_5, io.BTN_7_6, io.BTN_7_7, io.BTN_7_8},
 	}
-	h.laserVPos = &Slider{
+	h.laserColor = &Slider{
 		Buttons: []io.Button{io.BTN_8_1, io.BTN_8_2, io.BTN_8_3, io.BTN_8_4, io.BTN_8_5, io.BTN_8_6, io.BTN_8_7, io.BTN_8_8},
 	}
 
 	h.arrowsPage4 = &ArrowsCallControl{
 		Selectors: []*ArrowCall{
-			{Button: Call1, Handle: h.laserColor.HandleArrow, Step: 1},
-			{Button: Call2, Handle: h.laserPattern.HandleArrow, Step: 1},
-			{Button: Call3, Handle: h.laserSize.HandleArrow, Step: 1},
-			{Button: Call4, Handle: h.laserAngle.HandleArrow, Step: 1},
-			{Button: Call5, Handle: h.laserHAngle.HandleArrow, Step: 1},
-			{Button: Call6, Handle: h.laserVAngle.HandleArrow, Step: 1},
-			{Button: Call7, Handle: h.laserHPos.HandleArrow, Step: 1},
-			// No Call8 for bottom slider VPos
+			{Button: Call1, Handle: h.laserPattern.HandleArrow, Step: 1},
+			{Button: Call2, Handle: h.laserSize.HandleArrow, Step: 1},
+			{Button: Call3, Handle: h.laserAngle.HandleArrow, Step: 1},
+			{Button: Call4, Handle: h.laserHAngle.HandleArrow, Step: 1},
+			{Button: Call5, Handle: h.laserVAngle.HandleArrow, Step: 1},
+			{Button: Call6, Handle: h.laserHPos.HandleArrow, Step: 1},
+			{Button: Call7, Handle: h.laserVPos.HandleArrow, Step: 1},
+			// No Call8 for bottom slider color
 		},
 	}
 
@@ -294,7 +294,7 @@ func (h *Handler) Start() (err error) {
 	h.show, err = show.NewFromConfig(
 		"etc/setup.yaml",
 		show.WithFixtureLibrary("etc/fixtures.yaml"),
-		show.WithTickRate(25*time.Millisecond),
+		show.WithTickRate(22*time.Millisecond),
 	)
 	if err != nil {
 		return fmt.Errorf("show: %v", err)
@@ -458,7 +458,6 @@ func (h *Handler) HandleInput(in io.InputEvent) (changes []io.ButtonChangeEvent)
 			// Handle arrow usage (FIXME, combine handle/action into slider,rgbw objects ...)
 			h.arrowsPage4.Handle(in.Button)
 
-			h.laserColor.Handle(in.Button)
 			h.laserPattern.Handle(in.Button)
 			h.laserSize.Handle(in.Button)
 			h.laserAngle.Handle(in.Button)
@@ -466,6 +465,7 @@ func (h *Handler) HandleInput(in io.InputEvent) (changes []io.ButtonChangeEvent)
 			h.laserVAngle.Handle(in.Button)
 			h.laserHPos.Handle(in.Button)
 			h.laserVPos.Handle(in.Button)
+			h.laserColor.Handle(in.Button)
 
 			laserEnabled := true
 			if h.laserPattern.Value == 0 && h.laserColor.Value == 0 {
@@ -473,7 +473,6 @@ func (h *Handler) HandleInput(in io.InputEvent) (changes []io.ButtonChangeEvent)
 			}
 
 			logger.Default.Debug("laser",
-				zap.Uint8("color", h.laserColor.Value),
 				zap.Uint8("pattern", h.laserPattern.Value),
 				zap.Uint8("size", h.laserSize.Value),
 				zap.Uint8("angle", h.laserAngle.Value),
@@ -481,13 +480,15 @@ func (h *Handler) HandleInput(in io.InputEvent) (changes []io.ButtonChangeEvent)
 				zap.Uint8("vangle", h.laserVAngle.Value),
 				zap.Uint8("hpos", h.laserHPos.Value),
 				zap.Uint8("vpos", h.laserVPos.Value),
+				zap.Uint8("color", h.laserColor.Value),
 			)
 
 			h.show.SetFixtureFeature(show.Feature{
 				Name:    "manual",
-				Fixture: "laser", // laser-rgb-1
+				Fixture: "laser-chauvet", // laser-rgb-1
 				Config: laser.Feature{
-					Dynamic: laserEnabled,
+					//Dynamic: laserEnabled,
+					Static:  laserEnabled,
 					Color:   h.laserColor.Value,
 					Pattern: h.laserPattern.Value,
 					Size:    h.laserSize.Value,

@@ -48,7 +48,7 @@ func New(setup *config.Setup, opts ...ControllerOpt) (*Controller, error) {
 
 	// Default configuration
 	var c = &Controller{
-		tickRate:  25 * time.Millisecond,
+		tickRate:  22 * time.Millisecond,
 		setup:     setup,
 		universes: make(map[string]*Universe),
 		fixtures:  make(map[string]*Fixture),

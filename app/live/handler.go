@@ -92,7 +92,7 @@ func (h *Handler) Start() (err error) {
 	h.show, err = show.NewFromConfig(
 		"etc/setup.yaml",
 		show.WithFixtureLibrary("etc/fixtures.yaml"),
-		show.WithTickRate(25*time.Millisecond),
+		show.WithTickRate(22*time.Millisecond),
 	)
 	logger.Default.Debug("live handler show loaded")
 
